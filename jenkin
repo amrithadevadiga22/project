@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage("build") {
       steps {
-          sh 'ansible-playbook -i /host/inventory cassendra-backup.yml'
+          sh 'npm install'
           }
         }
       }
