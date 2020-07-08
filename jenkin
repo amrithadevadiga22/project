@@ -5,6 +5,13 @@ pipeline {
     stage("Checkout") {
        steps {
 	  checkout scm
+	   sh '''
+            #!/bin/sh
+            ls
+            pwd
+         
+            
+         '''
 	
 		}
 	 }
