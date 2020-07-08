@@ -21,11 +21,11 @@ pipeline {
           }
       stage ("test") {
         steps {
-           Sh ...
+           Sh '''
            ls
             pwd
             echo stage test completed
-            ...
+            '''
         }
        
         }
