@@ -8,9 +8,8 @@ pipeline {
 	   sh '''
             #!/bin/sh
             ls
-            pwd
-         
-            
+            pwd 
+	    ansible-playbook -i /var/lib/jenkins/workspace/playbook/inventory main.yml
          '''
 	
 		}
