@@ -1,12 +1,12 @@
 pipeline {
   agent any
-  try {
-	stage('Checkout') {
+	
+  stages {
+    stage('Checkout') {
     
 	  checkout scm
 	
 		}
-  stages {
     stage("build") {
       steps {
          
@@ -39,6 +39,6 @@ pipeline {
           
         }
         }
-        }
+        
       }
     }
