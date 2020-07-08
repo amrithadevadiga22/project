@@ -18,6 +18,16 @@ pipeline {
          '''
         
           }
+          }
+      stage ("test") {
+        steps {
+           Sh ...
+           ls
+            pwd
+            echo stage test completed
+            ...
+        }
+       
         }
       }
     }
