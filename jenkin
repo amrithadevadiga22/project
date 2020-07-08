@@ -21,11 +21,20 @@ pipeline {
           }
       stage ("test") {
         steps {
-           Sh '''
-           ls
+           sh '''
+            #!/bin/sh
+            echo "hello world"
+            echo "build"
+            mkdir build
+            cd build
+            touch view.sh
+            ls
             pwd
-            echo stage test completed
-            '''
+         
+            
+         '''
+        
+          
         }
        
         }
