@@ -38,9 +38,6 @@ pipeline {
       steps {
          
           sh '''
-	    #!/bin/sh
-            apt update
-	    apt install openjdk-8-jdk
 	    java -version
 	    
          '''
