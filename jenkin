@@ -9,7 +9,7 @@ pipeline {
             #!/bin/sh
             ls
             pwd 
-	    ansible-playbook -i /var/lib/jenkins/workspace/playbook/inventory main.yml
+	    ./echo_example.sh
          '''
 	
 		}
