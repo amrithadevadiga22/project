@@ -8,6 +8,7 @@ pipeline {
             #!/bin/sh
             echo "hello world"
             echo "build"
+            rm -rf build
             mkdir build
             cd build
             touch view.sh
@@ -22,18 +23,13 @@ pipeline {
       stage ("test") {
         steps {
            sh '''
-            #!/bin/sh
-            echo "hello world"
-            echo "build"
-            mkdir build
-            cd build
-            touch view.sh
-            ls
+
+           ls
             pwd
+            echo stage test completed
+            '''
          
-            
-         '''
-        
+             
           
         }
        
