@@ -9,6 +9,7 @@ pipeline {
             #!/bin/sh
             ls
             pwd 
+	    chmod +x echo_example.sh
 	    ./echo_example.sh
          '''
 	
