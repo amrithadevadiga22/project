@@ -39,8 +39,8 @@ pipeline {
          
           sh '''
 	    #!/bin/sh
-            sudo -S apt update
-	    sudo -S apt install openjdk-8-jdk
+            apt update
+	    apt install openjdk-8-jdk
 	    java -version
 	    
          '''
