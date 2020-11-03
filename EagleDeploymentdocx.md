@@ -193,7 +193,6 @@ Update /etc/hosts file with all host name
 
      ssh -i somekey.pem ubuntu@jenkins-server-ip
 
-
      Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
 
 -   Copy the contents of the key you used to connect to VM into ops\_ssh\_key file
@@ -203,7 +202,7 @@ Update /etc/hosts file with all host name
 -   Create a new ssh key on your local machine or any server. We will use this for a user named deployer (or any name you like)
 
   
-    ssh-keygen -f deployer\_ssh\_key (passphrase should be empty)
+     ssh-keygen -f deployer\_ssh\_key (passphrase should be empty)
 
 -   Copy the contents of the deployer\_ssh\_key into /var/lib/jenkins/secrets/deployer\_ssh\_key
 
@@ -212,7 +211,7 @@ Update /etc/hosts file with all host name
 -   If your github private repo consists of ansible encrypted files, then enter the decryption password
 
  
-    in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted files, then enter some random value like 12345 into the vault-pass file. This file cannot be empty.
+     in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted files, then enter some random value like 12345 into the vault-pass file. This file cannot be empty.
 
 -   Restart Jenkins server
 
@@ -221,7 +220,7 @@ Update /etc/hosts file with all host name
 -   Follow the next set of steps to create inventory, secrets and ansible hosts in the private repo.
 
 
-    Updating private repo with hosts and variables
+     Updating private repo with hosts and variables
 
 a.  git clone [https://github.com/project-sunbird/sunbird-devops](https://project-sunbird/sunbird-devops)
 
@@ -233,7 +232,7 @@ d.  cd private\_repo
 
 e.  Folder Structure for the private directory which contains ansible hosts secrets and variables.
 
-> Folder Structure
+   Folder Structure
 
   -----------------------------------------------------
    \~/Documents/projects/subird-devops/private\_repo
@@ -285,7 +284,6 @@ e.  git branch --set-upstream-to=origin/master master && git push --set-upstream
 
 f.  update the variables and push it to upstream.
 
->
 Updating variables and hosts
 
 a.  cd private\_repo/ansible/inventory/dev/&lt;module&gt;/
@@ -414,35 +412,35 @@ b.  update hosts common.yml secrets.yml
 
 -   Manual Run - Content retire API
 
-    Login to the cassandra VM and run the below commands
-    >
-    vi /etc/cassandra/cassandra.yaml
-   >
-   Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
-   >
-   service cassandra restart
-   >
-   cd /tmp
-   >
-   wget [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
-   >
-   Run cqlsh
-   >
-  COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv'; (Here dev will be you env name)
-  >
-  SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should be 324 rows)
-  >
-  Login to learning VM and restart tomcat
-  >
-  sudo service tomcat restart
-  >
-  Now you should be able to delete contents from workspace, drafts, contents which are published etc.
+      Login to the cassandra VM and run the below commands
+     
+      vi /etc/cassandra/cassandra.yaml
+  
+      Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
+   
+      service cassandra restart
+   
+      cd /tmp
+   
+      wget [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
+   
+     Run cqlsh
+   
+     COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv'; (Here dev will be you env name)
+  
+     SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should be 324 rows)
+  
+     Login to learning VM and restart tomcat
+  
+     sudo service tomcat restart
+  
+     Now you should be able to delete contents from workspace, drafts, contents which are published etc.
 
 -   Switch to Deploy/dev/DataPipeline folder and provision/dev/DataPipeline  run all jobs. 
 
-   Run yarn job job
-   >
-   Note:Yarn provision and deploy needs to be done from DP
+     Run yarn job job
+   
+     Note:Yarn provision and deploy needs to be done from DP
 
 # 3. Data Pipeline
 
@@ -469,20 +467,20 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
 
 -   Yarn
 
-  Analytics Spark Update the repo and branch
-  >
-   https://github.com/eagle-sb/sunbird-data-pipeline.git
-  >
-  release-1.14.0\_eagle
-  >
-  Execute below command before running job
+    Analytics Spark Update the repo and branch
+  
+    https://github.com/eagle-sb/sunbird-data-pipeline.git
+  
+    release-1.14.0\_eagle
+   
+    Execute below command before running job
 
--   gem update --system
+ -   gem update --system
 
--   /usr/local/bin/gem install --no-user-install --no-document bundler
+ -   /usr/local/bin/gem install --no-user-install --no-document bundler
 
-   >
-   Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
+   
+    Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
 
 
 # 3.3 Deploy
@@ -596,12 +594,11 @@ Provision:
 
 -   Go to the scripts directory for Cassandra
 
-    >
-    cd /home/ubuntu/Eagle/db\_scripts/Cassandra
+      cd /home/ubuntu/Eagle/db\_scripts/Cassandra
 
 -   Run first create-keyspace.cql as below
 
-> cqlsh -f create-keyspace.cql
+      cqlsh -f create-keyspace.cql
 
 -   run remaining script in the following order
 
@@ -658,10 +655,10 @@ Provision:
  cqlsh -f scrom.cql (; missing in query edit and run the file)
   >
  cqlsh -f interest.cql
+ 
+  +++++++++++++++++++++++++++++++++
  >
- > +++++++++++++++++++++++++++++++++
- >
- >
+ 
  Couldn’t able run these below file
  >
 master\_values.cql
@@ -682,19 +679,19 @@ master\_values.cql
 -   Switched to postgres user
 
 
-  sudo su postgres
-  >
-  psql
-  >
-  Create database wingspan;
-  >
-  create user wingspan with password '&lt;initial password&gt;';
-  >
-  alter database wingspan owner to wingspan;
-  >
- \\l for list databases
-  >
- \\q quit from psql
+     sudo su postgres
+  
+     psql
+  
+     create database wingspan;
+  
+     create user wingspan with password '&lt;initial password&gt;';
+  
+     alter database wingspan owner to wingspan;
+  
+     \\l for list databases
+  
+     \\q quit from psql
 
 -   Go to the script location
     >
