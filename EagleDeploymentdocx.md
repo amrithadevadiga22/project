@@ -144,16 +144,20 @@ Colons can be used to align columns.
 | ANSIBLE\_STDOUT\_CALLBACK |  debug      | 
 | hub\_org |docker hub organization / username eg: In sunbird/player image, sunbird is the hub\_org|
 
-  Name                           Value
-  ------------------------------ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  ANSIBLE\_FORCE\_COLOR          true
-  ANSIBLE\_HOST\_KEY\_CHECKING   false
-  ANSIBLE\_STDOUT\_CALLBACK      debug
-  hub\_org                       docker hub organization / username eg: In sunbird/player image, sunbird is the hub\_org
-  private\_repo\_branch          The branch name in the private repository which you would like to use. This branch will have the inventory and secrets
-  private\_repo\_credentials     The unique string which you provided for ID field while entering the github repo credentials. eg: private-repo-creds
-  private\_repo\_url             The github URL to your private repo. You can visit your private repo and click on clone button, which will display the https URL to your private repository. Only https URL is currently supported.
-  public\_repo\_branch           This is the branch or tag from where Jenkinsfile will be picked up. You can set this value as refs/tags/release-1.14.0 if you want to build from tags or provide the value of development branch like release-1.15 (not recommended since development branches are not stable). 
+
+
+
+
+ | Name         |                  Value|
+  --------------|:------------------------:|
+ | ANSIBLE\_FORCE\_COLOR    |      true |
+ | ANSIBLE\_HOST\_KEY\_CHECKING |  false |
+ | ANSIBLE\_STDOUT\_CALLBACK   |  debug |
+ | hub\_org                  |     docker hub organization / username eg: In sunbird/player image, sunbird is the hub\_org |
+ | private\_repo\_branch       |   The branch name in the private repository which you would like to use. This branch will have the inventory and secrets |
+ | private\_repo\_credentials    | The unique string which you provided for ID field while entering the github repo credentials. eg: private-repo-creds |
+ | private\_repo\_url          |   The github URL to your private repo. You can visit your private repo and click on clone button, which will display the https URL to your private repository. Only https URL is currently supported.|
+ | public\_repo\_branch        |   This is the branch or tag from where Jenkinsfile will be picked up. You can set this value as refs/tags/release-1.14.0 if you want to build from tags or provide the value of development branch like release-1.15 (not recommended since development branches are not stable). |
 
 ![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image6.png){width="6.5in"
 height="2.036111111111111in"}
