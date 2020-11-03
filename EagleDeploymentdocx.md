@@ -164,8 +164,7 @@ Update /etc/hosts file with all host name
 
 ![](media/image2.png)
 
--   Click on Save and go to Manage Jenkins -&gt; Configure global
-    > security
+-   Click on Save and go to Manage Jenkins -&gt; Configure global > security
 
 <!-- -->
 
