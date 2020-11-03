@@ -32,20 +32,17 @@ Update /etc/hosts file with all host name
 
 -   SSH to the Jenkins server
 
-> git clone <https://github.com/project-sunbird/sunbird-devops.git>
+ git clone <https://github.com/project-sunbird/sunbird-devops.git>
 >
-> cd sunbird-devops && git checkout tags/release-1.14.0 -b
-> release-1.14.0
+ cd sunbird-devops && git checkout tags/release-1.14.0 -b release-1.14.0
 >
-> cd deploy/Jenkins
+ cd deploy/Jenkins
 >
-> Note: Edit jenkins-server-setup.sh to update the version of jenkin to
-> 2.204
+ Note: Edit jenkins-server-setup.sh to update the version of jenkin to 2.204
 >
-> sudo bash jenkins-server-setup.sh
+ sudo bash jenkins-server-setup.sh
 
--   Once the jenkins-server-setup.sh script completes, open jenkins in
-    > browser by typing domain-name:8080 / public-ip:8080
+-   Once the jenkins-server-setup.sh script completes, open jenkins in browser by typing domain-name:8080 / public-ip:8080
 
 > Enter the initial password. Follow the on screen instructions
 
