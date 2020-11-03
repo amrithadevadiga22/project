@@ -869,101 +869,100 @@ PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan 
 -   This will generate script for template creation, like below Run all the script from template folder
 
 -   update elasticsearch.yml with below configuration and restart ES
-     >
-    script.max\_size\_in\_bytes: 10000000
+     
+      script.max\_size\_in\_bytes: 10000000
 
 -   Next run script for indices creation
     
-     vi create\_indices.sh
+       vi create\_indices.sh
    
-     echo "Creating ES indices"
+       echo "Creating ES indices"
 
-     SNAPSHOT=$(date +%Y_%m_%d)
+       SNAPSHOT=$(date +%Y_%m_%d)
 
-     echo "$SNAPSHOT"
+       echo "$SNAPSHOT"
 
-     es_ip=10.0.3.249
+       es_ip=10.0.3.249
 
-     es_port=9200
+       es_port=9200
 
-     es_username=elastic
+       es_username=elastic
 
-     es_password=
+       es_password=
 
-     for file in index/*; do
+       for file in index/*; do
 
-     echo "$(basename "$file")"
+       echo "$(basename "$file")"
 
-     echo "$file"
+       echo "$file"
 
-     index_name=$(echo $file | sed -e "s/.json/_${SNAPSHOT}/g")
+       index_name=$(echo $file | sed -e "s/.json/_${SNAPSHOT}/g")
 
-     echo "The index name to be created is $index_name"
+       echo "The index name to be created is $index_name"
 
-     echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPUT -d @$(basename "$file") http://$es_ip:$es_port/$index_name"
+       echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPUT -d @$(basename "$file") http://$es_ip:$es_port/$index_name"
 
-     done
+       done
 
-
-     bash create_indices.sh
+       bash create_indices.sh
 
 -   modify the output of above script as shown below
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @feedback_index.json http://<elastic server ip>:9200/feedback_index_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @feedback_index.json http://<elastic server ip>:9200/feedback_index_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @forum.json http://<elastic server ip>:9200/forum_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @forum.json http://<elastic server ip>:9200/forum_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @hashtags.json http://<elastic server ip>:9200/hashtags_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @hashtags.json http://<elastic server ip>:9200/hashtags_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @post.json http://<elastic server ip>:9200/post_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @post.json http://<elastic server ip>:9200/post_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @search http://<elastic server ip>:9200/search
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @search http://<elastic server ip>:9200/search
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @socialsearch_en.json http://<elastic server ip>:9200/socialsearch_en_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @socialsearch_en.json http://<elastic server ip>:9200/socialsearch_en_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @tags.json http://<elastic server ip>:9200/tags_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @tags.json http://<elastic server ip>:9200/tags_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @thread.json http://<elastic server ip>:9200/thread_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @thread.json http://<elastic server ip>:9200/thread_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @topicAutocomplete http://<elastic server ip>:9200/topicAutocomplete_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @topicAutocomplete http://<elastic server ip>:9200/topicAutocomplete_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @userpostactivity.json http://<elastic server ip>:9200/userpostactivity_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @userpostactivity.json http://<elastic server ip>:9200/userpostactivity_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/usersearch_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/usersearch_v1
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/accesscontrolgroups_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/accesscontrolgroups_v1
 
 
 -   Create alias for accesscontrolgroups\_v1
   
-   curl -X POST "<elastic server ip>:9200/_aliases?pretty" -H 'Content-Type: application/json' -d'
+     curl -X POST "<elastic server ip>:9200/_aliases?pretty" -H 'Content-Type: application/json' -d'
 
-   {
+     {
 
-   "actions" : [
+     "actions" : [
 
-   { "add" : { "index" : "accesscontrolgroups_v1", "alias" : "accesscontrolgroups" } }
+     { "add" : { "index" : "accesscontrolgroups_v1", "alias" : "accesscontrolgroups" } }
 
-   ]
+     ]
+ 
+     }
 
-   }
-
-   '
+     '
 
 -   Test alias via
-    >
-    curl http://&lt;elastic server ip&gt;:9200/\_cat/aliases | grep access
+    
+      curl http://&lt;elastic server ip&gt;:9200/\_cat/aliases | grep access
 
 -   Next go into index folder and run all the scripts, it will create indices
 
@@ -971,41 +970,41 @@ PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan 
 
 -   before run the script update the file create\_search\_indices\_aliases.py and create\_indices.sh like below
     
-    export esurl=10.0.3.x
+      export esurl=10.0.3.x
 
-    export esport=9200
+      export esport=9200
 
-    export espass=
+      export espass=
 
-    export esuser=
+      export esuser=
 
-    export version=v1
+      export version=v1
 
-    export oldversion=v1  ==>
+      export oldversion=v1  ==>
 
-    export aliases=yes    ==>
+      export aliases=yes    ==>
 
-    export indices=yes
+      export indices=yes
+      
 
+      python3 create_search_indices_aliases.py
 
-    python3 create_search_indices_aliases.py
+      apt install python3-pip
 
-    apt install python3-pip
+      python3 -m pip install elasticsearch5
 
-    python3 -m pip install elasticsearch5
-
-    bash create_indices.sh
+      bash create_indices.sh
 
 
 -   Goto DBScripts/elasticsearch/index/topicAutocomplete/
-    >
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @en\_topicautocomplete.json http:/&lt;elastic server ip&gt;:9200/topicautocomplete\_en\_v1
+    
+      curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @en\_topicautocomplete.json http:/&lt;elastic server ip&gt;:9200/topicautocomplete\_en\_v1
 
 -   Then run below commands
 
-     python3 acindexcreator.py
+      python3 acindexcreator.py
 
-     python3 acindexer.py
+      python3 acindexer.py
 
 # 5.4 Kafka server setup
 
