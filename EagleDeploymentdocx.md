@@ -137,11 +137,12 @@ Update /etc/hosts file with all host name
 
 Colons can be used to align columns.
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Name        | Value         |
+| ------------- |:-------------:|
+| ANSIBLE\_FORCE\_COLOR      | true |
+| ANSIBLE\_HOST\_KEY\_CHECKING    | false      |
+| ANSIBLE\_STDOUT\_CALLBACK |  debug      | 
+| hub\_org |docker hub organization / username eg: In sunbird/player image, sunbird is the hub\_org|
 
   Name                           Value
   ------------------------------ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
