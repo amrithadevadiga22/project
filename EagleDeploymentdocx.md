@@ -2,32 +2,31 @@
 
 Update /etc/hosts file with all host name
 
-> vi /etc/hosts
+ vi /etc/hosts
 >
-> 10.0.1.x ip-10.0.1.x
+ 10.0.1.x ip-10.0.1.x
 >
-> 10.0.3-x ip-10-0-3-x
+ 10.0.3-x ip-10-0-3-x
 >
-> 10.0-3-x ip-10-0-3-x
+ 10.0-3-x ip-10-0-3-x
 >
-> 10-0-3-x ip-10-0-3-x
+ 10-0-3-x ip-10-0-3-x
 >
-> 10-0-3-x ip-10-0-3-x
+ 10-0-3-x ip-10-0-3-x
 >
-> 10-0-1-x ip-10-0-1-x
+ 10-0-1-x ip-10-0-1-x
 >
-> 10-0-1-x ip-10-0-1-x
+ 10-0-1-x ip-10-0-1-x
 >
-> 10-0-3-x ip-10-0-3-x
+ 10-0-3-x ip-10-0-3-x
 >
-> 10-0-3-x ip-10-0-3-x
+ 10-0-3-x ip-10-0-3-x
 >
-> 10-0-3-x ip-10-0-3-x
+ 10-0-3-x ip-10-0-3-x
 >
-> 10-0-3-x ip-10-0-3-x
+ 10-0-3-x ip-10-0-3-x
 >
-> In “FS-Core-db” server, except Core Db Host name add all names in host
-> file
+ In “FS-Core-db” server, except Core Db Host name add all names in host file
 
 1.1 Jenkins Setup – First Run
 
