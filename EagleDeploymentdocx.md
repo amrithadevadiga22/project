@@ -815,453 +815,411 @@ folder_name=templates
 
 for file in $folder_name/*; do
 
-        #echo "$(basename "$file")"
+ #echo "$(basename "$file")"
 
-        #echo "$file"
+ #echo "$file"
 
-        script_name=$(echo $(basename "$file") | sed -e "s/.json//g")
+ script_name=$(echo $(basename "$file") | sed -e "s/.json//g")
 
-        #echo "The index name to be created is $index_name"
+ #echo "The index name to be created is $index_name"
 
-        echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPOST -d @$(basename "$file") http://$es_ip:$es_port/_scripts/$script_name"
+ echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPOST -d @$(basename "$file") http://$es_ip:$es_port/_scripts/$script_name"
 
 done
 -   run create\_templates.sh script
 
-> bash create\_templates.sh
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @counttemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/counttemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @forumtemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/forumtemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @hashtagstemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/hashtagstemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @mlsearchtemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/mlsearchtemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @mlsearchtemplatev6.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/mlsearchtemplatev6
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @posttemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/posttemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @searchactemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/searchactemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @socialsearchtemplate\_v1.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/socialsearchtemplate\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @tagstemplate.json http://10.0.3.x&lt;elastic server
-> ip&gt;:9200/\_scripts/tagstemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @threadtemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/threadtemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @threadtemplate\_v1.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/threadtemplate\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @threadtemplate\_v2.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/threadtemplate\_v2
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @topicsactemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/topicsactemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @userpostactivitytemplate.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/userpostactivitytemplate
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d
-> @usersearchtemplate\_ford.json http://&lt;elastic server
-> ip&gt;:9200/\_scripts/usersearchtemplate\_for
+bash create_templates.sh
 
--   This will generate script for template creation, like below Run all
-    > the script from template folder
+
+curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.json http://<elastic server ip>:9200/_scripts/counttemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @forumtemplate.json http://<elastic server ip>:9200/_scripts/forumtemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @hashtagstemplate.json http://<elastic server ip>:9200/_scripts/hashtagstemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplate.json http://<elastic server ip>:9200/_scripts/mlsearchtemplate
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplatev6.json http://<elastic server ip>:9200/_scripts/mlsearchtemplatev6
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @posttemplate.json http://<elastic server ip>:9200/_scripts/posttemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @searchactemplate.json http://<elastic server ip>:9200/_scripts/searchactemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @socialsearchtemplate_v1.json http://<elastic server ip>:9200/_scripts/socialsearchtemplate_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @tagstemplate.json http://10.0.3.x<elastic server ip>:9200/_scripts/tagstemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate.json http://<elastic server ip>:9200/_scripts/threadtemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate_v1.json http://<elastic server ip>:9200/_scripts/threadtemplate_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate_v2.json http://<elastic server ip>:9200/_scripts/threadtemplate_v2
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @topicsactemplate.json http://<elastic server ip>:9200/_scripts/topicsactemplate
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @userpostactivitytemplate.json http://<elastic server ip>:9200/_scripts/userpostactivitytemplate
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @usersearchtemplate_ford.json http://<elastic server ip>:9200/_scripts/usersearchtemplate_for
+
+
+-   This will generate script for template creation, like below Run all the script from template folder
 
 -   update elasticsearch.yml with below configuration and restart ES
-
-> script.max\_size\_in\_bytes: 10000000
+     >
+    script.max\_size\_in\_bytes: 10000000
 
 -   Next run script for indices creation
+    >
+   vi create\_indices.sh
+   
+   echo "Creating ES indices"
 
-> vi create\_indices.sh
->
-> echo "Creating ES indices"
->
-> SNAPSHOT=\$(date +%Y\_%m\_%d)
->
-> echo "\$SNAPSHOT"
->
-> es\_ip=10.0.3.249
->
-> es\_port=9200
->
-> es\_username=elastic
->
-> es\_password=
->
-> for file in index/\*; do
->
-> \#echo "\$(basename "\$file")"
->
-> \#echo "\$file"
->
-> index\_name=\$(echo \$file | sed -e "s/.json/\_\${SNAPSHOT}/g")
->
-> \#echo "The index name to be created is \$index\_name"
->
-> echo "curl -u '\$es\_username:\$es\_password' -H 'Content-Type:
-> application/json' -XPUT -d @\$(basename "\$file")
-> http://\$es\_ip:\$es\_port/\$index\_name"
->
-> done
->
-> bash create\_indices.sh
+   SNAPSHOT=$(date +%Y_%m_%d)
+
+   echo "$SNAPSHOT"
+
+   es_ip=10.0.3.249
+
+   es_port=9200
+
+   es_username=elastic
+
+   es_password=
+
+   for file in index/*; do
+
+   echo "$(basename "$file")"
+
+   echo "$file"
+
+   index_name=$(echo $file | sed -e "s/.json/_${SNAPSHOT}/g")
+
+   echo "The index name to be created is $index_name"
+
+   echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPUT -d @$(basename "$file") http://$es_ip:$es_port/$index_name"
+
+   done
+
+
+   bash create_indices.sh
 
 -   modify the output of above script as shown below
 
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @feedback\_index.json http://&lt;elastic server
-> ip&gt;:9200/feedback\_index\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @forum.json http://&lt;elastic server ip&gt;:9200/forum\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @hashtags.json http://&lt;elastic server ip&gt;:9200/hashtags\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @post.json http://&lt;elastic server ip&gt;:9200/post\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @search http://&lt;elastic server ip&gt;:9200/search
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @socialsearch\_en.json http://&lt;elastic server
-> ip&gt;:9200/socialsearch\_en\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @tags.json http://&lt;elastic server ip&gt;:9200/tags\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @thread.json http://&lt;elastic server ip&gt;:9200/thread\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @topicAutocomplete http://&lt;elastic server
-> ip&gt;:9200/topicAutocomplete\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @userpostactivity.json http://&lt;elastic server
-> ip&gt;:9200/userpostactivity\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @usersearch http://&lt;elastic server ip&gt;:9200/usersearch\_v1
->
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @usersearch http://&lt;elastic server
-> ip&gt;:9200/accesscontrolgroups\_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @feedback_index.json http://<elastic server ip>:9200/feedback_index_v1
+
+
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @forum.json http://<elastic server ip>:9200/forum_v1
+
+
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @hashtags.json http://<elastic server ip>:9200/hashtags_v1
+
+
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @post.json http://<elastic server ip>:9200/post_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @search http://<elastic server ip>:9200/search
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @socialsearch_en.json http://<elastic server ip>:9200/socialsearch_en_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @tags.json http://<elastic server ip>:9200/tags_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @thread.json http://<elastic server ip>:9200/thread_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @topicAutocomplete http://<elastic server ip>:9200/topicAutocomplete_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @userpostactivity.json http://<elastic server ip>:9200/userpostactivity_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/usersearch_v1
+
+
+   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/accesscontrolgroups_v1
+
 
 -   Create alias for accesscontrolgroups\_v1
+  
+   curl -X POST "<elastic server ip>:9200/_aliases?pretty" -H 'Content-Type: application/json' -d'
 
-> curl -X POST "&lt;elastic server ip&gt;:9200/\_aliases?pretty" -H
-> 'Content-Type: application/json' -d'
->
-> {
->
-> "actions" : \[
->
-> { "add" : { "index" : "accesscontrolgroups\_v1", "alias" :
-> "accesscontrolgroups" } }
->
-> \]
->
-> }
->
-> '
+   {
+
+   "actions" : [
+
+   { "add" : { "index" : "accesscontrolgroups_v1", "alias" : "accesscontrolgroups" } }
+
+   ]
+
+   }
+
+   '
 
 -   Test alias via
-
-> curl http://&lt;elastic server ip&gt;:9200/\_cat/aliases | grep access
+    >
+    curl http://&lt;elastic server ip&gt;:9200/\_cat/aliases | grep access
 
 -   Next go into index folder and run all the scripts, it will create indices
 
 -   Then go to index/search folder and run below scripts
 
 -   before run the script update the file create\_search\_indices\_aliases.py and create\_indices.sh like below
+    
+    export esurl=10.0.3.x
 
-> export esurl=10.0.3.x
->
-> export esport=9200
->
-> export espass=
->
-> export esuser=
->
-> export version=v1
->
-> export oldversion=v1 ==&gt;
->
-> export aliases=yes ==&gt;
->
-> export indices=yes
->
-> python3 create\_search\_indices\_aliases.py
->
-> apt install python3-pip
->
-> python3 -m pip install elasticsearch5
->
-> bash create\_indices.sh
+    export esport=9200
+
+    export espass=
+
+    export esuser=
+
+    export version=v1
+
+    export oldversion=v1  ==>
+
+    export aliases=yes    ==>
+
+    export indices=yes
+
+
+    python3 create_search_indices_aliases.py
+
+    apt install python3-pip
+
+    python3 -m pip install elasticsearch5
+
+    bash create_indices.sh
+
 
 -   Goto DBScripts/elasticsearch/index/topicAutocomplete/
-
-> curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d
-> @en\_topicautocomplete.json http:/&lt;elastic server
-> ip&gt;:9200/topicautocomplete\_en\_v1
+    >
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @en\_topicautocomplete.json http:/&lt;elastic server ip&gt;:9200/topicautocomplete\_en\_v1
 
 -   Then run below commands
 
-> python3 acindexcreator.py
->
-> python3 acindexer.py
+     python3 acindexcreator.py
+
+     python3 acindexer.py
 
 5.4 Kafka server setup
 
 -   Login to kafka server
 
 -   open /opt/kafka/config/server.properties
+     
+     set
 
-> Set
->
-> advertised.host.name=&lt;kafka server ip&gt;
->
->offsets.topic.replication.factor=1
+    advertised.host.name=<kafka server ip>
+
+    offsets.topic.replication.factor=1
 
 
 -   Restart the kafka server
 
-> service kafka stop
->
-> service kafka start
->
-> service kafka status
->
-> sudo systemctl start kafka.service
->
-> sudo systemctl status kafka.service
+    service kafka stop
+
+    service kafka start
+
+    service kafka status
+
+    sudo systemctl start kafka.service
+
+    sudo systemctl status kafka.service
 
 -   Topic creation as per the topic names shown below
 
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic social
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> publishpipeline-stage1-errors
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic search-indexer-errors
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic publishpipeline-stage1
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic learning-graph-events
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 4 --topic
-> email\_notification\_events
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 4 --topic notification\_events
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 4 --topic
-> push\_notification\_events
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 4 --topic
-> sms\_notification\_events
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.raw
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.log
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.failed
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.sink
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.telemetry.de\_normalized
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.telemetry.with\_location
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.derived
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.telemetry.indexer.failed
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.metrics
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.analytics.job\_queue
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.ingest
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.telemetry.extractor.failed
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.telemetry.duplicate
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic
-> stage.telemetry.malformed
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.telemetry.valid
->
-> ./bin/kafka-topics.sh --create --zookeeper localhost:2181
-> --replication-factor 1 --partitions 1 --topic stage.events.summary
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic social
+
+        
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic publishpipeline-stage1-errors
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic search-indexer-errors
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic publishpipeline-stage1
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic learning-graph-events
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic email_notification_events
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic notification_events
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic push_notification_events
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 4 --topic sms_notification_events
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.raw
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.log
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.failed
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.sink
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.de_normalized
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.with_location
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.derived
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.indexer.failed
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.metrics
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.analytics.job_queue
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.ingest
+
+
+     ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.extractor.failed
+
+
+      ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.duplicate
+
+
+       ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.malformed
+
+
+      ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.telemetry.valid
+
+
+      ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic stage.events.summary
 
 -   Test:
 
-> Pass message:
->
-> cd /opt/kafka && bin/kafka-console-producer.sh --broker-list
-> localhost:9092 --topic learning-graph-events
-> bin/kafka-console-consumer.sh --bootstrap-server localhost:9092
-> --topic learning-graph-events --from-beginning
+    Pass message:
+
+      cd /opt/kafka &&  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic learning-graph-events bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic learning-graph-events --from-beginning
+
 
 6 Ansible configuration for service deployment
 
--   Clone
-    [*https://github.com/igot-gov/Eagle.git*](https://github.com/igot-gov/Eagle.git)
-    git repo in jenkins server of master branch
+-   Clone [*https://github.com/igot-gov/Eagle.git*](https://github.com/igot-gov/Eagle.git) git repo in jenkins server of master branch
 
 -   Update the inventory file in the
 
-> Vi ansible\_workspace\_dir/inventory/host
->
-> \[dev\]
->
-> x.x.x.x \#swarm server private IP address
->
-> \[all:vars\]
->
-> ansible\_connection=ssh
->
-> ansible\_ssh\_user=deployer
->
-> ansible\_ssh\_private\_key\_file=/var/lib/jenkins/secrets/deployer\_ssh\_key
+    Vi  ansible_workspace_dir/inventory/host
+
+
+    [dev]
+
+    x.x.x.x #swarm server private IP address
+
+    [all:vars]
+
+    ansible_connection=ssh
+
+    ansible_ssh_user=deployer
+
+    ansible_ssh_private_key_file=/var/lib/jenkins/secrets/deployer_ssh_key
 
 -   Update the group vars file
 
-> Mv inventory\_group\_vars.yml dev.yml
->
-> Vi dev.yml
->
-> Update the respective ip address for servers
->
-> Update the database username and passwords
->
-> Update SMTP Details
->
-> Modify App Details, App variables, tags,s3 info, CDN info
->
-> Update Mount paths
+    Mv inventory_group_vars.yml dev.yml
+
+    Vi dev.yml
+
+   Update the respective ip address for servers
+
+   Update the database username and passwords
+
+   Update SMTP Details
+
+   Modify App Details, App variables, tags,s3 info, CDN info
+
+   Update  Mount paths
 
 -   Update the roles/deploy-content-service/vars/main.yml file with s3
     detail
 
-> \# S3 configuration details
->
-> aws\_access\_key: &lt;Access Key&gt;
->
-> aws\_secret\_key:&lt;Secret Key&gt;
->
-> aws\_cloudfront\_access\_key: &lt;cloud front access key&gt;
+    aws_access_key: <Access Key>
+
+    aws_secret_key:<Secret Key>
+
+    aws_cloudfront_access_key: <cloud front access key>
 
 -   Create a secret key file in swarm server for docker
 
-> ssh to swarm server
->
-> create a new ssh key on your local machine or any server. 
->
-> mkdir /wingspan\_docker\_secret\_location
->
-> cd /wingspan\_docker\_secret\_location
->
-> touch content\_service\_s3\_pem
->
-> Copy the content of newkey file to content\_service\_s3\_pem file
+    ssh to swarm server
+
+    create a new ssh key on your local machine or any server.  
+
+    mkdir /wingspan_docker_secret_location
+
+    cd /wingspan_docker_secret_location
+
+    touch content_service_s3_pem
+
+    Copy the content of newkey file to content_service_s3_pem file
 
 -   Login docker hub
 
-> In swarm server login to docker repo with username and password
->
-> docker login
->
-> Username:
->
-> Password:
->
-> If you are facing issue with the docker-compose version, upgrade the
-> docker engine version in swarm server
+    In swarm server login to docker repo with username and password
+
+    docker login
+
+    Username:
+
+    Password:
+
+
+    If you are facing issue with the docker-compose version, upgrade the docker engine version in swarm server
 
 -   Update the docker stack command in service deployment script of of
     each roles
 
-> docker stack deploy --with-registry-auth -c {{
-> compose\_file\_deployment\_location }} {{ docker\_service\_stack\_name
-> }}
->
-> eg:
->
-> vi deploy-lex-chatbot-service/tasks/deploy-service.yml
->
-> edit stack command like shown above
->
-> vi deploy-content-service/tasks/deploy-service.yml
->
-> edit stack command like shown above
+    docker stack deploy --with-registry-auth -c {{ compose_file_deployment_location }} {{ docker_service_stack_name }}
+
+
+    eg:
+
+    vi deploy-lex-chatbot-service/tasks/deploy-service.yml
+
+    edit stack command like shown above
+
+
+    vi deploy-content-service/tasks/deploy-service.yml
+
+    edit stack command like shown above
+
 
 -   Cassandra
 
-> This db script is missing in the codebase. INSERT INTO sunbird.users
-> (id) VALUES('iiksdksjdkjsdksd')
->
-> Update all root org info in Cassandra table
+    This db script is missing in the codebase. INSERT INTO sunbird.users   (id) VALUES('iiksdksjdkjsdksd')
 
+
+    Update all root org info in Cassandra table
+    
 -   client-assets service settings:
 
 <!-- -->
@@ -1281,42 +1239,36 @@ done
 
 -   mkdir proxy-proxy
 
-> mkdir sb-ext
+       mkdir sb-ext
 
 -   change the directory to
-    > /mydata/content-directory/web-host/client-assets
+       /mydata/content-directory/web-host/client-assets
 
 -   create directory called dist
 
 -   change the directory to dist
 
-> cd dist
+      cd dist
 
--   Clone the repo client-assets from branch remotes/origin/igot-dev of
-    > master branch
+-   Clone the repo client-assets from branch remotes/origin/igot-dev of master branch
 
--   Then in in client-assets/assets/configurations path check
-    > localhost3000
+-   Then in in client-assets/assets/configurations path check localhost3000
 
 -   rename the localhost3000 to domain name
 
 -   do ls there
 
-> auth.config.json feature features.config.json host.config.json
-> manifest page site.config.json
-
-widgets.config.json
+    auth.config.json feature features.config.json host.config.json manifest page site.config.json widgets.config.json
 
 -   here need to edit host.conf.json and site.config.json file
 
 -   edit host.conf file
 
-App name: add your application name here
+    App name: add your application name here
 
-Root org and org should be updated as per your application
+    Root org and org should be updated as per your application
 
-in the keycloak section update the to
-url:[*https://domainame/auth*](https://domainame/auth)
+    in the keycloak section update the to url:[*https://domainame/auth*](https://domainame/auth)
 
 -   same thing will be applies for site.config.json file too
 
@@ -1330,201 +1282,193 @@ url:[*https://domainame/auth*](https://domainame/auth)
 
 -   switch the directory to /home/deployer/config
 
--   git clone
-    > [*https://github.com/eagle-sb/sunbird-devops.git*](https://github.com/eagle-sb/sunbird-devops.git)
+-   git clone [*https://github.com/eagle-sb/sunbird-devops.git*](https://github.com/eagle-sb/sunbird-devops.git)
 
--   copy proxy-default.conf file from
-    > sunbird-devops/ansible/roles/stack-proxy/templates/ to
-    > /home/deployer/config
+-   copy proxy-default.conf file from sunbird-devops/ansible/roles/stack-proxy/templates/ to  /home/deployer/config
 
 -   edit proxy-default.conf file for nginx set up
 
-> server {
->
-> listen 3007;
->
-> server\_name \#swarm server IP
->
-> proxy\_set\_header Host \$host;
->
-> proxy\_set\_header X-Real-IP \$remote\_addr;
->
-> proxy\_set\_header X-Forwarded-For \$proxy\_add\_x\_forwarded\_for;
->
-> proxy\_set\_header X-Forwarded-SSL on;
->
-> proxy\_set\_header X-Forwarded-Proto \$scheme;
->
-> location /web-hosted/ {
->
-> root /content-mount/web-host;
->
-> rewrite \^/web-hosted/(.\*) /\$1 break; }
->
-> location /share/ {
->
-> client\_max\_body\_size 200M;
->
-> set \$target
-> [http://social\_social-share:3009](http://social_social-share:3009/);
->
-> rewrite \^/share/(.\*) /\$1 break;
->
-> proxy\_pass \$target;
->
-> proxy\_set\_header Host \$host;
->
-> proxy\_set\_header X-Real-IP \$remote\_addr;
->
-> proxy\_set\_header X-Scheme \$scheme;
->
-> proxy\_connect\_timeout 5;
->
-> proxy\_send\_timeout 60;
->
-> proxy\_read\_timeout 70;
->
-> }
->
-> location / {
->
-> set \$target http://ui\_lex-ui-static:3004;
->
-> rewrite \^/(.\*) /\$1 break;
->
-> proxy\_pass \$target;
->
-> proxy\_set\_header Host \$host;
->
-> proxy\_set\_header X-Real-IP \$remote\_addr;
->
-> proxy\_set\_header X-Scheme \$scheme;
->
-> proxy\_connect\_timeout 5;
->
-> proxy\_send\_timeout 60;
->
-> proxy\_read\_timeout 70;
->
-> proxy\_set\_header X-Forwarded-Proto \$scheme;
->
-> \# root /usr/share/nginx/www;
->
-> }
->
-> location /apis/ {
->
-> proxy\_set\_header X-Real-IP \$remote\_addr;
->
-> proxy\_set\_header X-Forwarded-For \$remote\_addr;
->
-> proxy\_set\_header Host \$host;
->
-> proxy\_set\_header X-Forwarded-Host \$host;
->
-> proxy\_set\_header X-Forwarded-Server \$host;
->
-> if (\$request\_method = OPTIONS ) {
->
-> add\_header Access-Control-Allow-Origin "\*" ;
->
-> add\_header Access-Control-Allow-Methods "GET, OPTIONS, PATCH, POST";
->
-> add\_header Access-Control-Allow-Headers "Access-Control-Allow-Origin,
-> Authorization, Content-Type, rootorg, org, wid, hostpath";
->
-> \# add\_header Access-Control-Allow-Credentials "true";
->
-> add\_header Content-Length 0;
->
-> add\_header Content-Type text/plain;
->
-> return 200;
->
-> }
->
-> add\_header Access-Control-Allow-Origin "\*";
->
-> add\_header Access-Control-Allow-Methods "GET, POST, OPTIONS";
->
-> proxy\_cookie\_path \~\^/. /;
->
-> set \$target http://lex-ui-proxies:9001;
->
-> rewrite \^/apis/(.\*) /\$1 break;
->
-> proxy\_pass \$target;
->
-> proxy\_connect\_timeout 10;
->
-> proxy\_send\_timeout 30;
->
-> proxy\_read\_timeout 30;
->
-> }
->
-> location /content-api/ {
->
-> set \$target
-> [http://lex-content-service](http://lex-content-service/);
->
-> rewrite \^/content-api/(.\*) /public/\$1 break;
->
-> proxy\_pass \$target;
->
-> proxy\_set\_header Host \$host;
->
-> proxy\_set\_header X-Real-IP \$remote\_addr;
->
-> proxy\_set\_header X-Scheme \$scheme;
->
-> proxy\_connect\_timeout 10;
->
-> proxy\_send\_timeout 30;
->
-> proxy\_read\_timeout 30;
->
-> proxy\_set\_header X-Forwarded-Proto \$scheme;
->
-> root /usr/share/nginx/www;
->
-> }
->
-> location /nodebb/ {
->
-> proxy\_set\_header X-Real-IP \$remote\_addr;
->
-> proxy\_set\_header X-Forwarded-For \$proxy\_add\_x\_forwarded\_for;
->
-> proxy\_set\_header X-Forwarded-Proto \$scheme;
->
-> proxy\_set\_header Host \$http\_host;
->
-> proxy\_set\_header X-NginX-Proxy true;
->
-> proxy\_redirect off;
->
-> \# [Socket.IO](http://socket.io/) Support
->
-> proxy\_http\_version 1.1;
->
-> proxy\_set\_header Upgrade \$http\_upgrade;
->
-> proxy\_set\_header Connection "upgrade";
->
-> set \$target [http://&lt;node db
-> Ip&gt;:4567](http://10.0.1.183:4567/);
->
-> \#rewrite \^/nodebb/(.\*) /\$1 break;
->
-> proxy\_pass \$target;
->
-> }
+server {
 
--   Then run the jenkin job for nginx set up under
-    > /deploy/dev/core/proxy
+  listen                3007;
 
-<!-- -->
+  server_name           #swarm server IP
+
+  proxy_set_header    Host              $host;
+
+  proxy_set_header    X-Real-IP         $remote_addr;
+
+  proxy_set_header    X-Forwarded-For   $proxy_add_x_forwarded_for;
+
+  proxy_set_header    X-Forwarded-SSL   on;
+
+  proxy_set_header    X-Forwarded-Proto $scheme;
+
+ location /web-hosted/ {
+
+   root   /content-mount/web-host;
+
+   rewrite ^/web-hosted/(.*) /$1 break;  }
+
+location /share/ {
+
+   client_max_body_size 200M;
+
+   set $target http://social_social-share:3009;
+
+   rewrite ^/share/(.*) /$1 break;
+
+   proxy_pass $target;
+
+
+   proxy_set_header Host $host;
+
+   proxy_set_header X-Real-IP $remote_addr;
+
+   proxy_set_header X-Scheme $scheme;
+
+   proxy_connect_timeout 5;
+
+   proxy_send_timeout 60;
+
+   proxy_read_timeout 70;
+
+  }
+
+location / {
+
+  set $target http://ui_lex-ui-static:3004;
+
+  rewrite ^/(.*) /$1 break;
+
+   proxy_pass $target;
+
+
+   proxy_set_header Host $host;
+
+   proxy_set_header X-Real-IP $remote_addr;
+   
+   proxy_set_header X-Scheme $scheme;
+
+   proxy_connect_timeout 5;
+
+   proxy_send_timeout 60;
+
+   proxy_read_timeout 70;
+
+   proxy_set_header    X-Forwarded-Proto $scheme;
+
+
+  }
+
+location /apis/ {
+
+  proxy_set_header X-Real-IP  $remote_addr;
+
+  proxy_set_header X-Forwarded-For $remote_addr;
+
+  proxy_set_header Host $host;
+
+  proxy_set_header X-Forwarded-Host $host;
+
+  proxy_set_header X-Forwarded-Server $host;
+
+   if ($request_method = OPTIONS ) {
+   
+   add_header Access-Control-Allow-Origin "*" ;
+
+   add_header Access-Control-Allow-Methods "GET, OPTIONS, PATCH, POST";
+
+   add_header Access-Control-Allow-Headers "Access-Control-Allow-Origin, Authorization, Content-Type, rootorg, org, wid, hostpath";
+               
+   add_header Content-Length 0;
+
+   add_header Content-Type text/plain;
+
+   return 200;
+
+   }
+
+
+add_header Access-Control-Allow-Origin "*";
+
+add_header Access-Control-Allow-Methods "GET, POST, OPTIONS";
+
+
+  proxy_cookie_path ~^/. /;
+
+
+  set $target http://lex-ui-proxies:9001;
+
+  rewrite ^/apis/(.*) /$1 break;
+
+  proxy_pass $target;
+
+
+  proxy_connect_timeout 10;
+
+  proxy_send_timeout 30;
+
+  proxy_read_timeout 30;
+
+}
+
+location /content-api/ {
+
+   set $target http://lex-content-service;
+
+   rewrite ^/content-api/(.*) /public/$1 break;
+
+   proxy_pass $target;
+
+
+   proxy_set_header Host $host;
+
+   proxy_set_header X-Real-IP $remote_addr;
+
+   proxy_set_header X-Scheme $scheme;
+
+   proxy_connect_timeout 10;
+
+   proxy_send_timeout 30;
+
+   proxy_read_timeout 30;
+
+   proxy_set_header    X-Forwarded-Proto $scheme;
+
+   root   /usr/share/nginx/www;
+   
+  }
+
+
+location /nodebb/ {
+
+   proxy_set_header X-Real-IP $remote_addr;
+
+   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+   proxy_set_header X-Forwarded-Proto $scheme;
+
+   proxy_set_header Host $http_host;
+
+   proxy_set_header X-NginX-Proxy true;
+
+   proxy_redirect off;
+
+
+   proxy_http_version 1.1;
+
+   proxy_set_header Upgrade $http_upgrade;
+
+   proxy_set_header Connection "upgrade";
+
+   set $target http://<node db Ip>:4567;
+
+   proxy_pass $target;
+
+    }
+    
+    
 
 -   Follow the document below for cloudfront set up
 
