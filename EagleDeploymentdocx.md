@@ -1049,6 +1049,7 @@ Provision:
 > Set
 >
 > advertised.host.name=&lt;kafka server ip&gt;
+>
 >offsets.topic.replication.factor=1
 
 
