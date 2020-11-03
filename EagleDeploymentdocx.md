@@ -337,62 +337,9 @@ b.  update hosts common.yml secrets.yml
 | 21     | InfluxDB                |                            |                           |                                                                                                                       |                   |
 | 22     | kafka \(Kp, Dp\. Core\) | Server 9 \(kafka\)         |                           | processing\-cluster\-kafka, processing\-cluster\-zookeepers, kafka\-ps kafka\-1                                       | Common            |
 
-    
-  
+ 
 
-  |---------------------|-------------------|-----------------------|------------------------------|-------------------------|---------|
-  [S.NO](http://s.no/)   Service                Server                   IP Address of the machine   Ansible Group Name                                                Module
-  |----------------------| -------------------|--- ------------------|------ ------------------------|--- --------------------|----------|
-  |1                     | jenkins-master                                                                                                                                   Core
-
-  |2                     | manager                Server-1 (swarm)                                     swarm-manager-1,swarm-agent-for-prometheus-1\                        
-                                                                                                     swarm-agent-for-grafana-1, swarm-agent-for-alertmanager-1,           
-
-  |3                      log-es                                                                      log-es-1                                                             
-
-  |4                                                                                                                                                                       
-
-  |5                      keycloak               Server-2 (core-db)                                   keycloak-1                                                           
-
-  |6                      cassandra-lms (core)                                                        cassandra-1                                                          
-
-  |8                      Postgress                                                                   postgresql-master-1, postgresql-slave-1                              
-
-  |9                      es-lms-1                                                                    es-1                                                                 
-
-  10                     cassandra-lp-dp        Server-3 (lp-db)                                     lp-cassandra, dp-cassandra                                           KnowledgePlatform
-
-  11                     kp-dp-es-1                                                                  composite-search-cluster,es-ps                                       
-
-  12                     Postgress                                                                                                                                        
-
-  13                     neo4j                                                                       learning-neo4j-node1                                                 
-
-  14                     learning-1             Server-4 (lp-services)                               learning1,logstash-ps                                                
-
-  15                     redis                                                                       redis1                                                               
-
-  16                     search                                                                      search1                                                              
-
-  17                     spark                  Server 5 (spark)                                     spark                                                                Data Pipeline
-
-  18                     yarn-rm                Server 6 (yarn-RM)                                   yarn-master,yarn-ps                                                  
-
-  19                     yarn-slave             Server 7 (yarn-slave)                                yarn-slave,yarn-ps                                                   
-
-  20                     analytics-api          Server 8 (dp-services)                               analytics-api, analytics-ps,                                         
-
-  21                     kafka-indexer                                                               kafka-indexer                                                        
-
-  22                     secor                                                                       secor, secor-ps                                                      
-
-  23                     InfluxDB                                                                                                                                         
-
-  24                     kafka (Kp, Dp. Core)   Server 9 (kafka)                                     processing-cluster-kafka, processing-cluster-zookeepers, kafka-ps\   Common
-                                                                                                     kafka-1                                                              
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-2\. Knowledge Platform
+2. Knowledge Platform
 
 2.1 Build
 
@@ -412,8 +359,7 @@ b.  update hosts common.yml secrets.yml
 -   Switch the artifactUpload /dev/ folder and Run all the job manually
     > with option "jenkin job" in Knowledge Platform folder.
 
-![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image3.png){width="6.5in"
-height="2.64375in"}
+![](/media/image6.png)
 
 -   After running build job run Switch to
     > Jenkins/OpsAdministration/dev/KnowledgePlatform folder and run
