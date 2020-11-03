@@ -315,6 +315,7 @@ b.  update hosts common.yml secrets.yml
 
  | S.NO       |         Service| Server| IP Address of the machine|Ansible Group Name|Module
   |--------------|:------------------:|------:|------------------------------------:|-----------------------------:|----------|
+    |1 | jenkins-master|  |  | | core |
   
   
 
