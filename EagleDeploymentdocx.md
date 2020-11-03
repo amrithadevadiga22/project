@@ -476,7 +476,7 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
  -   /usr/local/bin/gem install --no-user-install --no-document bundler
 
    
-    Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
+      Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
 
 
 # 3.3 Deploy
