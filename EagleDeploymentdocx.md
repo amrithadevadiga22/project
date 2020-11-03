@@ -77,9 +77,9 @@ Update /etc/hosts file with all host name
 -   Now switch back to the terminal session on the Jenkins server
 
  
-   cp envOrder.txt.sample envOrder.txt\
+    cp envOrder.txt.sample envOrder.txt\
  
-   vi envOrder.txt
+    vi envOrder.txt
 
 -  Update the environment list as per your infrastructure in ascending order. For example if you have only dev and production, your envOrder.txt will look like
 
