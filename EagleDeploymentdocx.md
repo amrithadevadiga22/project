@@ -332,11 +332,9 @@ b.  update hosts common.yml secrets.yml
 
 -   Switch to the Build folder and run all jobs in the KnowledgePlatform folder.
 
-> Update the repo and branch of Neo4j job as below
->
-> [*https://github.com/project-sunbird/sunbird-learning-platform.git*](https://github.com/project-sunbird/sunbird-learning-platform.git)
->
-> refs/tags/release-2.2.1\_RC8
+Update the repo and branch of Neo4j job as below
+[*https://github.com/project-sunbird/sunbird-learning-platform.git*](https://github.com/project-sunbird/sunbird-learning-platform.git)
+refs/tags/release-2.2.1\_RC8
 
 -   Switch the artifactUpload /dev/ folder and Run all the job manually with option "jenkin job" in Knowledge Platform folder.
 
