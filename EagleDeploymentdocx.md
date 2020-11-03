@@ -312,6 +312,12 @@ a.  cd private\_repo/ansible/inventory/dev/&lt;module&gt;/
 
 b.  update hosts common.yml secrets.yml
 
+
+ | S.NO       |         Service| Server| IP Address of the machine|Ansible Group Name|Module
+  |--------------|:------------------:|------:|------------------------------------:|-----------------------------:|----------|
+  
+  
+
   |---------------------|-------------------|-----------------------|------------------------------|-------------------------|---------|
   [S.NO](http://s.no/)   Service                Server                   IP Address of the machine   Ansible Group Name                                                Module
   |----------------------| -------------------|--- ------------------|------ ------------------------|--- --------------------|----------|
