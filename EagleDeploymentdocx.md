@@ -64,11 +64,11 @@ Update /etc/hosts file with all host name
 
 -   switch back to the terminal session on the Jenkins server
 
-   sudo bash jenkins-plugins-setup.sh\
+    sudo bash jenkins-plugins-setup.sh\
  
-   Enter the URL as localhost:8080\
+    Enter the URL as localhost:8080\
  
-   Enter the admin username and password
+    Enter the admin username and password
 
 -  Now go to Manage Jenkins -&gt; Manage Plugins -&gt; Update Center -&gt; Check status of plugin install. If any plugins failed to install, install them manually by visiting the plugins section of Jenkins
 
