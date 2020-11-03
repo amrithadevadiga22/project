@@ -762,6 +762,7 @@ rootOrg = 'igot' #os.environ['rootOrg']
 
 org = 'dopt' #os.environ['org']
 
+
 -   then open acindexcreator.py and update as below
 
 esUrl = '10.0.3.x’ #os.environ['esurl']
@@ -782,65 +783,66 @@ indices = 'yes' #os.environ['indices']
 
 -   mv mlsearchtemplatev6.txt mlsearchtemplatev6.json &lt;Not found&gt;
 
-<!-- -->
 
 -   vi create\_templates.sh
 
-echo "Creating ES indices"
+      echo "Creating ES indices"
 
-SNAPSHOT=$(date +%Y_%m_%d)
+      SNAPSHOT=$(date +%Y_%m_%d)
 
-echo "$SNAPSHOT"
+      echo "$SNAPSHOT"
 
-es_ip=<ip of ES server>
+      es_ip=<ip of ES server>
 
-es_port=9200
+      es_port=9200
 
-es_username=elastic
+      es_username=elastic
 
-es_password=
+      es_password=
 
-folder_name=templates
+      folder_name=templates
 
-for file in $folder_name/*; do
+      for file in $folder_name/*; do
 
- #echo "$(basename "$file")"
+      #echo "$(basename "$file")"
 
- #echo "$file"
+      #echo "$file"
 
- script_name=$(echo $(basename "$file") | sed -e "s/.json//g")
+      script_name=$(echo $(basename "$file") | sed -e "s/.json//g")
 
- #echo "The index name to be created is $index_name"
+      #echo "The index name to be created is $index_name"
 
- echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPOST -d @$(basename "$file") http://$es_ip:$es_port/_scripts/$script_name"
+      echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPOST -d @$(basename "$file") http://$es_ip:$es_port/_scripts/$script_name"
 
-done
+      done
+      
 -   run create\_templates.sh script
 
-bash create_templates.sh
+    bash create_templates.sh
 
 
-curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.json http://<elastic server ip>:9200/_scripts/counttemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.json http://<elastic server ip>:9200/_scripts/counttemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @forumtemplate.json http://<elastic server ip>:9200/_scripts/forumtemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @forumtemplate.json http://<elastic server ip>:9200/_scripts/forumtemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @hashtagstemplate.json http://<elastic server ip>:9200/_scripts/hashtagstemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @hashtagstemplate.json http://<elastic server ip>:9200/_scripts/hashtagstemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplate.json http://<elastic server ip>:9200/_scripts/mlsearchtemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplate.json http://<elastic server ip>:9200/_scripts/mlsearchtemplate
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplatev6.json http://<elastic server ip>:9200/_scripts/mlsearchtemplatev6
-
-
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @posttemplate.json http://<elastic server ip>:9200/_scripts/posttemplate
+   
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplatev6.json http://<elastic server ip>:9200/_scripts/mlsearchtemplatev6
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @searchactemplate.json http://<elastic server ip>:9200/_scripts/searchactemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @posttemplate.json http://<elastic server ip>:9200/_scripts/posttemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @socialsearchtemplate_v1.json http://<elastic server ip>:9200/_scripts/socialsearchtemplate_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @searchactemplate.json http://<elastic server ip>:9200/_scripts/searchactemplate
+
+
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @socialsearchtemplate_v1.json http://<elastic server ip>:9200/_scripts/socialsearchtemplate_v1
 
 
    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @tagstemplate.json http://10.0.3.x<elastic server ip>:9200/_scripts/tagstemplate
@@ -857,6 +859,7 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
 
    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @topicsactemplate.json http://<elastic server ip>:9200/_scripts/topicsactemplate
 
+  
    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @userpostactivitytemplate.json http://<elastic server ip>:9200/_scripts/userpostactivitytemplate
 
 
@@ -870,39 +873,39 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
     script.max\_size\_in\_bytes: 10000000
 
 -   Next run script for indices creation
-    >
-   vi create\_indices.sh
+    
+     vi create\_indices.sh
    
-   echo "Creating ES indices"
+     echo "Creating ES indices"
 
-   SNAPSHOT=$(date +%Y_%m_%d)
+     SNAPSHOT=$(date +%Y_%m_%d)
 
-   echo "$SNAPSHOT"
+     echo "$SNAPSHOT"
 
-   es_ip=10.0.3.249
+     es_ip=10.0.3.249
 
-   es_port=9200
+     es_port=9200
 
-   es_username=elastic
+     es_username=elastic
 
-   es_password=
+     es_password=
 
-   for file in index/*; do
+     for file in index/*; do
 
-   echo "$(basename "$file")"
+     echo "$(basename "$file")"
 
-   echo "$file"
+     echo "$file"
 
-   index_name=$(echo $file | sed -e "s/.json/_${SNAPSHOT}/g")
+     index_name=$(echo $file | sed -e "s/.json/_${SNAPSHOT}/g")
 
-   echo "The index name to be created is $index_name"
+     echo "The index name to be created is $index_name"
 
-   echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPUT -d @$(basename "$file") http://$es_ip:$es_port/$index_name"
+     echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPUT -d @$(basename "$file") http://$es_ip:$es_port/$index_name"
 
-   done
+     done
 
 
-   bash create_indices.sh
+     bash create_indices.sh
 
 -   modify the output of above script as shown below
 
@@ -918,28 +921,28 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
     curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @post.json http://<elastic server ip>:9200/post_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @search http://<elastic server ip>:9200/search
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @search http://<elastic server ip>:9200/search
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @socialsearch_en.json http://<elastic server ip>:9200/socialsearch_en_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @socialsearch_en.json http://<elastic server ip>:9200/socialsearch_en_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @tags.json http://<elastic server ip>:9200/tags_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @tags.json http://<elastic server ip>:9200/tags_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @thread.json http://<elastic server ip>:9200/thread_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @thread.json http://<elastic server ip>:9200/thread_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @topicAutocomplete http://<elastic server ip>:9200/topicAutocomplete_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @topicAutocomplete http://<elastic server ip>:9200/topicAutocomplete_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @userpostactivity.json http://<elastic server ip>:9200/userpostactivity_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @userpostactivity.json http://<elastic server ip>:9200/userpostactivity_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/usersearch_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/usersearch_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/accesscontrolgroups_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPUT -d @usersearch http://<elastic server ip>:9200/accesscontrolgroups_v1
 
 
 -   Create alias for accesscontrolgroups\_v1
@@ -1010,24 +1013,24 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
 
 -   open /opt/kafka/config/server.properties
      
-     set
+      set
 
-    advertised.host.name=<kafka server ip>
+      advertised.host.name=<kafka server ip>
 
-    offsets.topic.replication.factor=1
+      offsets.topic.replication.factor=1
 
 
 -   Restart the kafka server
 
-    service kafka stop
+     service kafka stop
 
-    service kafka start
+     service kafka start
 
-    service kafka status
+     service kafka status
 
-    sudo systemctl start kafka.service
+     sudo systemctl start kafka.service
 
-    sudo systemctl status kafka.service
+     sudo systemctl status kafka.service
 
 -   Topic creation as per the topic names shown below
 
@@ -1120,94 +1123,94 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
     Vi  ansible_workspace_dir/inventory/host
 
 
-    [dev]
+     [dev]
 
-    x.x.x.x #swarm server private IP address
+      x.x.x.x #swarm server private IP address
+ 
+     [all:vars]
 
-    [all:vars]
+     ansible_connection=ssh
 
-    ansible_connection=ssh
+     ansible_ssh_user=deployer
 
-    ansible_ssh_user=deployer
-
-    ansible_ssh_private_key_file=/var/lib/jenkins/secrets/deployer_ssh_key
+     ansible_ssh_private_key_file=/var/lib/jenkins/secrets/deployer_ssh_key
 
 -   Update the group vars file
 
-    Mv inventory_group_vars.yml dev.yml
+     Mv inventory_group_vars.yml dev.yml
 
-    Vi dev.yml
+     Vi dev.yml
 
-   Update the respective ip address for servers
+     Update the respective ip address for servers
 
-   Update the database username and passwords
+     Update the database username and passwords
 
-   Update SMTP Details
+     Update SMTP Details
 
-   Modify App Details, App variables, tags,s3 info, CDN info
+     Modify App Details, App variables, tags,s3 info, CDN info
 
-   Update  Mount paths
+     Update  Mount paths
 
 -   Update the roles/deploy-content-service/vars/main.yml file with s3
     detail
 
-    aws_access_key: <Access Key>
+      aws_access_key: <Access Key>
 
-    aws_secret_key:<Secret Key>
+      aws_secret_key:<Secret Key>
 
-    aws_cloudfront_access_key: <cloud front access key>
+      aws_cloudfront_access_key: <cloud front access key>
 
 -   Create a secret key file in swarm server for docker
 
-    ssh to swarm server
+      ssh to swarm server
 
-    create a new ssh key on your local machine or any server.  
+      create a new ssh key on your local machine or any server.  
 
-    mkdir /wingspan_docker_secret_location
+      mkdir /wingspan_docker_secret_location
 
-    cd /wingspan_docker_secret_location
+      cd /wingspan_docker_secret_location
 
-    touch content_service_s3_pem
+      touch content_service_s3_pem
 
-    Copy the content of newkey file to content_service_s3_pem file
+      Copy the content of newkey file to content_service_s3_pem file
 
 -   Login docker hub
 
-    In swarm server login to docker repo with username and password
+      In swarm server login to docker repo with username and password
 
-    docker login
+      docker login
 
-    Username:
+      Username:
 
-    Password:
+      Password:
 
 
-    If you are facing issue with the docker-compose version, upgrade the docker engine version in swarm server
+      If you are facing issue with the docker-compose version, upgrade the docker engine version in swarm server
 
 -   Update the docker stack command in service deployment script of of
     each roles
 
-    docker stack deploy --with-registry-auth -c {{ compose_file_deployment_location }} {{ docker_service_stack_name }}
+      docker stack deploy --with-registry-auth -c {{ compose_file_deployment_location }} {{ docker_service_stack_name }}
 
 
-    eg:
+      eg:
 
-    vi deploy-lex-chatbot-service/tasks/deploy-service.yml
+      vi deploy-lex-chatbot-service/tasks/deploy-service.yml
 
-    edit stack command like shown above
+      edit stack command like shown above
 
 
-    vi deploy-content-service/tasks/deploy-service.yml
+      vi deploy-content-service/tasks/deploy-service.yml
 
-    edit stack command like shown above
+      edit stack command like shown above
 
 
 -   Cassandra
 
-    This db script is missing in the codebase. INSERT INTO sunbird.users   (id) VALUES('iiksdksjdkjsdksd')
+      This db script is missing in the codebase. INSERT INTO sunbird.users   (id) VALUES('iiksdksjdkjsdksd')
 
 
-    Update all root org info in Cassandra table
+      Update all root org info in Cassandra table
     
 -   client-assets service settings:
 
