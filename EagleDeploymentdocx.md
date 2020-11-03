@@ -160,17 +160,9 @@ Update /etc/hosts file with all host name
 | Source Code Management  | Git |
  | Project Repository    |   <https://github.com/project-sunbird/sunbird-devops.git> |
  
- 
- 
- | Name          |           Value |
-  ----------------|:-------- ----------:|
- |  Library Name        |     deploy-conf |
- 
-| Retrieval method     |    Modern SCM |
-| Source Code Management  | Git |
- | Project Repository    |   <https://github.com/project-sunbird/sunbird-devops.git> |
 
-![](media/image5.png)
+
+![](media/image2.png)
 
 -   Click on Save and go to Manage Jenkins -&gt; Configure global
     > security
