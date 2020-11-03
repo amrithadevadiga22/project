@@ -123,8 +123,7 @@ Update /etc/hosts file with all host name
 > you can provide the description as private repo credentials and click
 > OK.
 
-![](/media/image7.png){width="6.5in"
-height="2.3555555555555556in"}
+![](/media/image1.png)
 
 -   Goto *http://&lt;jenkins\_domain&gt;/configure*
 
