@@ -186,7 +186,7 @@ Update /etc/hosts file with all host name
  
      chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
 
-> ![](/media/image7.png)
+ ![](/media/image7.png)
 
 -   The key which you used to login to the Jenkins server will be called as ops\_ssh\_key from now onwards. Example
 
