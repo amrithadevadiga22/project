@@ -135,18 +135,6 @@ Update /etc/hosts file with all host name
 
 -   Click on Add and enter the following Name, Value pairs
 
-Colons can be used to align columns.
-
-| Name        | Value         |
-| ------------- |:-------------:|
-| ANSIBLE\_FORCE\_COLOR      | true |
-| ANSIBLE\_HOST\_KEY\_CHECKING    | false      |
-| ANSIBLE\_STDOUT\_CALLBACK |  debug      | 
-| hub\_org |docker hub organization / username eg: In sunbird/player image, sunbird is the hub\_org|
-
-
-
-
 
  | Name         |                  Value|
   --------------|:------------------------:|
@@ -159,22 +147,20 @@ Colons can be used to align columns.
  | private\_repo\_url          |   The github URL to your private repo. You can visit your private repo and click on clone button, which will display the https URL to your private repository. Only https URL is currently supported.|
  | public\_repo\_branch        |   This is the branch or tag from where Jenkinsfile will be picked up. You can set this value as refs/tags/release-1.14.0 if you want to build from tags or provide the value of development branch like release-1.15 (not recommended since development branches are not stable). |
 
-![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image6.png){width="6.5in"
-height="2.036111111111111in"}
+![](/media/image3.png)
 
 -   Scroll down to “Global Pipeline Libraries” section and click Add.
     > Provide the values as below
 
-  Name                     Value
-  ------------------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Library Name             deploy-conf
-  Default version          Tag name of the jenkins shared library. This should be same version of the release you are going to build and deploy. For example, if you decide to use tags release-1.14.0 as your base, jenkins shared library tag will be release-1.14.0-shared-lib. When you upgrade to tags release-1.15.0, this value should get changed to release-1.15.0-shared-lib
-  Retrieval method         Modern SCM
-  Source Code Management   Git
-  Project Repository       <https://github.com/project-sunbird/sunbird-devops.git>
+ | Name          |           Value |
+  ----------------|:-------- ----------:|
+ |  Library Name        |     deploy-conf |
+ | Default version       |   Tag name of the jenkins shared library. This should be same version of the release you are going to build and deploy. For example, if you decide to use tags release-1.14.0 as your base, jenkins shared library tag will be release-1.14.0-shared-lib. When you upgrade to tags release-1.15.0, this value should get changed to release-1.15.0-shared-lib|
+| Retrieval method     |    Modern SCM |
+| Source Code Management  | Git |
+ | Project Repository    |   <https://github.com/project-sunbird/sunbird-devops.git> |
 
-![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image4.png){width="6.5in"
-height="2.6819444444444445in"}
+![](media/image5.png)
 
 -   Click on Save and go to Manage Jenkins -&gt; Configure global
     > security
@@ -183,8 +169,7 @@ height="2.6819444444444445in"}
 
 -   Choose the “Markup Formatter” as “Safe HTML”
 
-![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image1.png){width="6.5in"
-height="0.9763888888888889in"}
+![](/media/image5.png)
 
 -   Go to Manage Jenkins -&gt; Manage Nodes -&gt; Click master -&gt;
     > Click Configure -&gt; Provide labels as “build-slave”
@@ -195,8 +180,7 @@ height="0.9763888888888889in"}
     > configuration is 16 GB RAM and 4 core CPU. Adjust this number
     > accordingly based on your system configuration
 
-![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image2.png){width="6.5in"
-height="1.9756944444444444in"}
+![](/media/image4.png)
 
 -   Switch back to the terminal session on Jenkins server
 
@@ -216,8 +200,7 @@ height="1.9756944444444444in"}
 >
 > chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
 >
-> ![](/home/amritha/Downloads/EagleDeploymentdocx/images//media/image5.png){width="6.75in"
-> height="0.5777777777777777in"}
+> ![](/media/image7.png)
 
 -   The key which you used to login to the Jenkins server will be called
     > as ops\_ssh\_key from now onwards. Example
@@ -329,25 +312,25 @@ a.  cd private\_repo/ansible/inventory/dev/&lt;module&gt;/
 
 b.  update hosts common.yml secrets.yml
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  [S.NO](http://s.no/)   Service                Server                   IP Address of the machine   Ansible Group Name                                                   Module
-  ---------------------- ---------------------- ------------------------ --------------------------- -------------------------------------------------------------------- -------------------
-  1                      jenkins-master                                                                                                                                   Core
+  |---------------------|-------------------|-----------------------|------------------------------|-------------------------|---------|
+  [S.NO](http://s.no/)   Service                Server                   IP Address of the machine   Ansible Group Name                                                Module
+  |----------------------| -------------------|--- ------------------|------ ------------------------|--- --------------------|----------|
+  |1                     | jenkins-master                                                                                                                                   Core
 
-  2                      manager                Server-1 (swarm)                                     swarm-manager-1,swarm-agent-for-prometheus-1\                        
+  |2                     | manager                Server-1 (swarm)                                     swarm-manager-1,swarm-agent-for-prometheus-1\                        
                                                                                                      swarm-agent-for-grafana-1, swarm-agent-for-alertmanager-1,           
 
-  3                      log-es                                                                      log-es-1                                                             
+  |3                      log-es                                                                      log-es-1                                                             
 
-  4                                                                                                                                                                       
+  |4                                                                                                                                                                       
 
-  5                      keycloak               Server-2 (core-db)                                   keycloak-1                                                           
+  |5                      keycloak               Server-2 (core-db)                                   keycloak-1                                                           
 
-  6                      cassandra-lms (core)                                                        cassandra-1                                                          
+  |6                      cassandra-lms (core)                                                        cassandra-1                                                          
 
-  8                      Postgress                                                                   postgresql-master-1, postgresql-slave-1                              
+  |8                      Postgress                                                                   postgresql-master-1, postgresql-slave-1                              
 
-  9                      es-lms-1                                                                    es-1                                                                 
+  |9                      es-lms-1                                                                    es-1                                                                 
 
   10                     cassandra-lp-dp        Server-3 (lp-db)                                     lp-cassandra, dp-cassandra                                           KnowledgePlatform
 
