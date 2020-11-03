@@ -1,4 +1,4 @@
-1.0 Host set up
+#1.0 Host set up
 
 Update /etc/hosts file with all host name
 
@@ -1466,10 +1466,9 @@ location /nodebb/ {
 
    proxy_pass $target;
 
-    }
+   }
     
     
-
 -   Follow the document below for cloudfront set up
 
 [*https://drive.google.com/file/d/1aozN7nvsOS3HxeUifqTz23cQIbTDrD7H/view?ths=true*](https://drive.google.com/file/d/1aozN7nvsOS3HxeUifqTz23cQIbTDrD7H/view?ths=true)
