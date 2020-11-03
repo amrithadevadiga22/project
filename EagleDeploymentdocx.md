@@ -1049,10 +1049,8 @@ Provision:
 > Set
 >
 > advertised.host.name=&lt;kafka server ip&gt;
->
-> []{#_heading=h.gjdgxs .anchor}offsets.topic.replication.factor=1
+>offsets.topic.replication.factor=1
 
-[]{#_heading=h.42nrkrr34ft2 .anchor}
 
 -   Restart the kafka server
 
