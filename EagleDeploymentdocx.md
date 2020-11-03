@@ -87,7 +87,6 @@ Update /etc/hosts file with all host name
 
 >
    dev=0
-
 >  
    production=1
 
@@ -323,7 +322,6 @@ b.  update hosts common.yml secrets.yml
 | 22     | kafka \(Kp, Dp\. Core\) | Server 9 \(kafka\)         |                           | processing\-cluster\-kafka, processing\-cluster\-zookeepers, kafka\-ps kafka\-1                                       | Common            |
 
  
-
 2. Knowledge Platform
 
 2.1 Build
@@ -334,14 +332,11 @@ b.  update hosts common.yml secrets.yml
 
 -   Switch to the Build folder and run all jobs in the KnowledgePlatform folder.
 
+> Update the repo and branch of Neo4j job as below
 >
-    Update the repo and branch of Neo4j job as below
+> [*https://github.com/project-sunbird/sunbird-learning-platform.git*](https://github.com/project-sunbird/sunbird-learning-platform.git)
 >
-> 
-    [*https://github.com/project-sunbird/sunbird-learning-platform.git*](https://github.com/project-sunbird/sunbird-learning-platform.git)
->
-> 
-    refs/tags/release-2.2.1\_RC8
+> refs/tags/release-2.2.1\_RC8
 
 -   Switch the artifactUpload /dev/ folder and Run all the job manually with option "jenkin job" in Knowledge Platform folder.
 
@@ -355,8 +350,7 @@ b.  update hosts common.yml secrets.yml
 
 2.2 Provision
 
-> 
-    Switch to Provision/dev/KnowledgePlatform and run jobs in following order
+> Switch to Provision/dev/KnowledgePlatform and run jobs in following order
 
 -   Cassandra
 
@@ -374,46 +368,33 @@ b.  update hosts common.yml secrets.yml
 
 -   Search
 
-> 
-   Update the repo and branch of Neo4j job as below
+> Update the repo and branch of Neo4j job as below
 >
+> <https://github.com/eagle-sb/sunbird-learning-platform.git>
 >
-   <https://github.com/eagle-sb/sunbird-learning-platform.git>
+> release-1.14.0
 >
-> 
-   release-1.14.0
+> Update the repo and branch of Zookeeper job as below
 >
-> 
-   Update the repo and branch of Zookeeper job as below
+> https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> 
-   https://github.com/eagle-sb/sunbird-learning-platform.git
+> release-1.14.0
 >
-> 
-  release-1.14.0
+> Update the repo and branch of Zookeeper job as below
 >
-> 
-  Update the repo and branch of Zookeeper job as below
+> https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> 
-  https://github.com/eagle-sb/sunbird-learning-platform.git
+> release-1.14.0
 >
-> 
-  release-1.14.0
+> Update the repo and branch of Zookeeper job as below
 >
-> 
-  Update the repo and branch of Zookeeper job as below
+> https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> 
-  https://github.com/eagle-sb/sunbird-learning-platform.git
->
-> 
-  release-1.14.0
+> release-1.14.0
 
 2.3 Deploy
 
-> 
-   Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
+> Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
 
 -   CassandraDbUpdate
 
@@ -429,68 +410,55 @@ b.  update hosts common.yml secrets.yml
 
 -   KafkaSetup
 
-> 
-   Neo4jDefinitionUpdate Update the repo and branch
+> Neo4jDefinitionUpdate Update the repo and branch
 >
-> 
-  https://github.com/project-sunbird/sunbird-learning-platform.git
+> https://github.com/project-sunbird/sunbird-learning-platform.git
 >
-> 
-  refs/tags/release-2.2.1\_RC8
+> refs/tags/release-2.2.1\_RC8
 
 -   Manual Run - Content retire API
 
-> 
-   Login to the cassandra VM and run the below commands
+> Login to the cassandra VM and run the below commands
 >
-> 
-   vi /etc/cassandra/cassandra.yaml
+> vi /etc/cassandra/cassandra.yaml
 >
-> 
-   Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
+> Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
 >
-> 
-   service cassandra restart
+> service cassandra restart
 >
-> 
-   cd /tmp
+> cd /tmp
 >
-> 
-  wget [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
+> wget
+> [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
 >
-> 
-  Run cqlsh
+> Run cqlsh
 >
-> 
-  COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv';
-> 
-  (Here dev will be you env name)
+> COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv';
+> (Here dev will be you env name)
 >
-> 
-  SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should be 324 rows)
+> SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should
+> be 324 rows)
 >
-> 
-  Login to learning VM and restart tomcat
+> Login to learning VM and restart tomcat
 >
-> 
-  sudo service tomcat restart
+> sudo service tomcat restart
 >
-> 
-  Now you should be able to delete contents from workspace, drafts, contents which are published etc.
+> Now you should be able to delete contents from workspace, drafts,
+> contents which are published etc.
 
--   Switch to Deploy/dev/DataPipeline folder and provision/dev/DataPipeline  run all jobs. 
+-   Switch to Deploy/dev/DataPipeline folder and
+    > provision/dev/DataPipeline  run all jobs. 
 
-> 
-   Run yarn job job
+> Run yarn job job
 >
-> 
-   Note:Yarn provision and deploy needs to be done from DP
+> Note:Yarn provision and deploy needs to be done from DP
 
 3. Data Pipeline
 
 3.1 Build
 
-Switch to the Build folder of the data pipeline module and run all jobs. 
+Switch to the Build folder of the data pipeline module and run all
+jobs. 
 
 3.2 Provision
 
@@ -510,8 +478,7 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
 
 -   Yarn
 
-> 
-    Analytics Spark Update the repo and branch
+> Analytics Spark Update the repo and branch
 >
 > https://github.com/eagle-sb/sunbird-data-pipeline.git
 >
@@ -524,6 +491,7 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
 -   /usr/local/bin/gem install --no-user-install --no-document bundler
 
 > Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
+
 
 3.3 Deploy
 
