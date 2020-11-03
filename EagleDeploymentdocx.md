@@ -152,6 +152,10 @@ Update /etc/hosts file with all host name
 -   Scroll down to “Global Pipeline Libraries” section and click Add.
     > Provide the values as below
 
+| Name         |                  Value|
+  --------------|:------------------------:|
+ |  Library Name        |     deploy-conf |
+ 
  | Name          |           Value |
   ----------------|:-------- ----------:|
  |  Library Name        |     deploy-conf |
