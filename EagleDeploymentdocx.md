@@ -45,35 +45,34 @@ Update /etc/hosts file with all host name
 
 -   Once the jenkins-server-setup.sh script completes, open jenkins in browser by typing domain-name:8080 / public-ip:8080
 
-> Enter the initial password. Follow the on screen instructions
+> 
+    Enter the initial password. Follow the on screen instructions
 
 -   Choose install suggested plugin
 
-> Create a admin user
+    Create a admin user
 >
-> User name: admin
+    User name: admin
 >
-> Password: &lt;initial password&gt;
+    Password: &lt;initial password&gt;
 >
-> Email : &lt;communication email&gt;
+    Email : &lt;communication email&gt;
 
--   Choose the default jenkins URL. You can either change this to your
-    > domain name or public IP. If in doubt, just use whatever is
-    > displayed on screen as this can be changed later if required in
-    > Jenkins configuration.
+-   Choose the default jenkins URL. You can either change this to your domain name or public IP. If in doubt, just use whatever is displayed on screen as this can be changed later if required in Jenkins configuration.
 
-> [*http://IP:8080/*](http://ip:8080/)
+> 
+    [*http://IP:8080/*](http://ip:8080/)
 
 -   switch back to the terminal session on the Jenkins server
 
-> sudo bash jenkins-plugins-setup.sh\
-> Enter the URL as localhost:8080\
-> Enter the admin username and password
+> 
+   sudo bash jenkins-plugins-setup.sh\
+> 
+   Enter the URL as localhost:8080\
+> 
+   Enter the admin username and password
 
--   Now go to Manage Jenkins -&gt; Manage Plugins -&gt; Update Center
-    > -&gt; Check status of plugin install. If any plugins failed to
-    > install, install them manually by visiting the plugins section of
-    > Jenkins
+-  Now go to Manage Jenkins -&gt; Manage Plugins -&gt; Update Center -&gt; Check status of plugin install. If any plugins failed to install, install them manually by visiting the plugins section of Jenkins
 
 <!-- -->
 
