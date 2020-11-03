@@ -369,27 +369,27 @@ b.  update hosts common.yml secrets.yml
 -   Search
 
     Update the repo and branch of Neo4j job as below
->
+    >
     <https://github.com/eagle-sb/sunbird-learning-platform.git>
->
+    >
     release-1.14.0
->
+    >
     Update the repo and branch of Zookeeper job as below
->
+    >
     https://github.com/eagle-sb/sunbird-learning-platform.git
->
+    >
      release-1.14.0
->
+     >
      Update the repo and branch of Zookeeper job as below
->
+     >
       https://github.com/eagle-sb/sunbird-learning-platform.git
->
+      >
       release-1.14.0
->
+      >
       Update the repo and branch of Zookeeper job as below
->
+      >
       https://github.com/eagle-sb/sunbird-learning-platform.git
->
+      >
       release-1.14.0
 
 2.3 Deploy
