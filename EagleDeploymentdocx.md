@@ -155,11 +155,17 @@ Update /etc/hosts file with all host name
 | Name         |                  Value|
   --------------|:------------------------:|
  |  Library Name        |     deploy-conf |
+ | Default version       |   Tag name of the jenkins shared library. This should be same version of the release you are going to build and deploy. For example, if you decide to use tags release-1.14.0 as your base, jenkins shared library tag will be release-1.14.0-shared-lib. When you upgrade to tags release-1.15.0, this value should get changed to release-1.15.0-shared-lib|
+ | Retrieval method     |    Modern SCM |
+| Source Code Management  | Git |
+ | Project Repository    |   <https://github.com/project-sunbird/sunbird-devops.git> |
+ 
+ 
  
  | Name          |           Value |
   ----------------|:-------- ----------:|
  |  Library Name        |     deploy-conf |
- | Default version       |   Tag name of the jenkins shared library. This should be same version of the release you are going to build and deploy. For example, if you decide to use tags release-1.14.0 as your base, jenkins shared library tag will be release-1.14.0-shared-lib. When you upgrade to tags release-1.15.0, this value should get changed to release-1.15.0-shared-lib|
+ 
 | Retrieval method     |    Modern SCM |
 | Source Code Management  | Git |
  | Project Repository    |   <https://github.com/project-sunbird/sunbird-devops.git> |
