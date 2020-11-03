@@ -178,23 +178,23 @@ Update /etc/hosts file with all host name
 -   Execute below command to create SSH config file
 
  
-   sudo su jenkins
+     sudo su jenkins
 
-   mkdir -p /var/lib/jenkins/secrets && cd /var/lib/jenkins/secrets
+     mkdir -p /var/lib/jenkins/secrets && cd /var/lib/jenkins/secrets
 
-   touch deployer\_ssh\_key ops\_ssh\_key vault-pass
+     touch deployer\_ssh\_key ops\_ssh\_key vault-pass
  
-   chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
+     chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
 
 > ![](/media/image7.png)
 
 -   The key which you used to login to the Jenkins server will be called as ops\_ssh\_key from now onwards. Example
 
 
-   ssh -i somekey.pem ubuntu@jenkins-server-ip
+     ssh -i somekey.pem ubuntu@jenkins-server-ip
 
 
-   Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
+     Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
 
 -   Copy the contents of the key you used to connect to VM into ops\_ssh\_key file
 
