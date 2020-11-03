@@ -701,10 +701,12 @@ master\_values.cql
  \\q quit from psql
 
 -   Go to the script location
-    > /home/ubuntu/test/wingspan-database-scripts-db\_scripts/postgres
-    > and run all the .sql scripts from postgres user
+    >
+    /home/ubuntu/test/wingspan-database-scripts-db\_scripts/postgres and run all the .sql scripts from postgres user
+    >
+    first need to run create-schema.sql
     
-    PGPASSWORD= <initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f create-schema.sql
+PGPASSWORD= <initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f create-schema.sql
 
 
 PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f user_details.sql
@@ -752,92 +754,42 @@ cd Notification\ Final\ Scripts
 PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f Notification\ Final\ Scripts
     
     
-
-    first need to run create-schema.sql
->
-> PGPASSWORD= &lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f create-schema.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f user\_details.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f badge.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f goals.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f userprofiles\_pathfinders.sql
->
-> PGPASSWORD= &lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f batch\_execution.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f termsandconditions.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f content\_progress.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f educator\_mapping.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f content\_source.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f filters.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f notification.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f pathfinders\_notfication.sql
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f notification\_infosys.sql
->
-> cd Notification\\ Final\\ Scripts
->
-> PGPASSWORD=&lt;initial password&gt; psql -h localhost -U wingspan -p
-> 5432 -d wingspan -a -f Notification\\ Final\\ Scripts
-
 5.3 Set up of Elastic DB
 
 -   Go to search\_autocomplete folder
 
-> open acindexer.py and update as below
->
-> esUrl = '10.0.3.x' \#os.environ\['esurl'\]
->
-> esPort = '9200' \#os.environ\['esport'\]
->
-> esPass = '' \#os.environ\['espass'\]
->
-> esUser = 'elastic' \#os.environ\['esuser'\]
->
-> rootOrg = 'igot' \#os.environ\['rootOrg'\]
->
-> org = 'dopt' \#os.environ\['org'\]
+open acindexer.py and update as below
+
+
+esUrl = '10.0.3.x' #os.environ['esurl']
+
+esPort = '9200' #os.environ['esport']
+
+esPass = '' #os.environ['espass']
+
+esUser = 'elastic' #os.environ['esuser']
+
+rootOrg = 'igot' #os.environ['rootOrg']
+
+org = 'dopt' #os.environ['org']
 
 -   then open acindexcreator.py and update as below
 
-> esUrl = '10.0.3.x’ \#os.environ\['esurl'\]
->
-> esPort = '9200' \#os.environ\['esport'\]
->
-> esPass = '' \#os.environ\['espass'\]
->
-> esUser = 'elastic' \#os.environ\['esuser'\]
->
-> aliases = 'no' \#os.environ\['aliases'\]
->
-> indices = 'yes' \#os.environ\['indices'\]
+esUrl = '10.0.3.x’ #os.environ['esurl']
 
--   Go to
-    > DBScripts/elasticsearch/index/search/search\_mappings\_settings.py
+esPort = '9200'  #os.environ['esport']
 
-> ==&gt; Change Org and rootOrg==&gt;
+esPass = '' #os.environ['espass']
+
+esUser = 'elastic' #os.environ['esuser']
+
+aliases = 'no' #os.environ['aliases']
+
+indices = 'yes' #os.environ['indices']
+
+-   Go to DBScripts/elasticsearch/index/search/search\_mappings\_settings.py
+
+    ==&gt; Change Org and rootOrg==&gt;
 
 -   mv mlsearchtemplatev6.txt mlsearchtemplatev6.json &lt;Not found&gt;
 
@@ -845,38 +797,35 @@ PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan 
 
 -   vi create\_templates.sh
 
-> echo "Creating ES indices"
->
-> SNAPSHOT=\$(date +%Y\_%m\_%d)
->
-> echo "\$SNAPSHOT"
->
-> es\_ip=&lt;ip of ES server&gt;
->
-> es\_port=9200
->
-> es\_username=elastic
->
-> es\_password=
->
-> folder\_name=templates
->
-> for file in \$folder\_name/\*; do
->
-> \#echo "\$(basename "\$file")"
->
-> \#echo "\$file"
->
-> script\_name=\$(echo \$(basename "\$file") | sed -e "s/.json//g")
->
-> \#echo "The index name to be created is \$index\_name"
->
-> echo "curl -u '\$es\_username:\$es\_password' -H 'Content-Type:
-> application/json' -XPOST -d @\$(basename "\$file")
-> http://\$es\_ip:\$es\_port/\_scripts/\$script\_name"
->
-> done
+echo "Creating ES indices"
 
+SNAPSHOT=$(date +%Y_%m_%d)
+
+echo "$SNAPSHOT"
+
+es_ip=<ip of ES server>
+
+es_port=9200
+
+es_username=elastic
+
+es_password=
+
+folder_name=templates
+
+for file in $folder_name/*; do
+
+        #echo "$(basename "$file")"
+
+        #echo "$file"
+
+        script_name=$(echo $(basename "$file") | sed -e "s/.json//g")
+
+        #echo "The index name to be created is $index_name"
+
+        echo "curl -u '$es_username:$es_password' -H 'Content-Type: application/json' -XPOST -d @$(basename "$file") http://$es_ip:$es_port/_scripts/$script_name"
+
+done
 -   run create\_templates.sh script
 
 > bash create\_templates.sh
