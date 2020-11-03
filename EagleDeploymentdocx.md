@@ -312,22 +312,30 @@ a.  cd private\_repo/ansible/inventory/dev/&lt;module&gt;/
 
 b.  update hosts common.yml secrets.yml
 
-
- | S.NO       |         Service| Server| IP Address of the machine|Ansible Group Name|Module
-  |--------------|:------------------:|------:|------------------------------------:|-----------------------------:|----------|
-    
-    
-| Column 1 Header | Column 2 Header | Column 3 Header || Column 1 Header | Column 2 Header | Column 3 Header |
-| --------------- | --------------- | --------------- || --------------- | --------------- | --------------- |
-| Row 1 Column 1 | Row 1 Column 2 | Row 1 Column 3 | Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 1 Column 1 | Row 1 Column 2 | Row 1 Column 3 | Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 2 Column 1 | Row 2 Column 2 | Row 2 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 2 Column 1 | Row 2 Column 2 | Row 2 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 1 Column 1 | Row 1 Column 2 | Row 1 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 2 Column 1 | Row 2 Column 2 | Row 2 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
-| Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |Row 3 Column 1 | Row 3 Column 2 | Row 3 Column 3 |
+ |  S\.NO | Service                 | Server                     | IP Address of the machine | Ansible Group Name                                                                                                    | Module            |
+|--------|-------------------------|----------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------|
+| 1      | jenkins\-master         |                            | aa                        |                                                                                                                       | Core              |
+| 2      | manager                 | Server\-1 \(swarm\)        |                           | swarm\-manager\-1,swarm\-agent\-for\-prometheus\-1 swarm\-agent\-for\-grafana\-1, swarm\-agent\-for\-alertmanager\-1, |                   |
+| 3      | log\-es                 |                            |                           | log\-es\-1                                                                                                            |                   |
+| 4      | keycloak                | Server\-2 \(core\-db\)     |                           | keycloak\-1                                                                                                           |                   |
+| 5      | cassandra\-lms \(core\) |                            |                           | cassandra\-1                                                                                                          |                   |
+| 6      | Postgress               |                            |                           | postgresql\-master\-1, postgresql\-slave\-1                                                                           |                   |
+| 7      | es\-lms\-1              |                            |                           | es\-1                                                                                                                 |                   |
+| 8      | cassandra\-lp\-dp       | Server\-3 \(lp\-db\)       |                           | lp\-cassandra, dp\-cassandra                                                                                          | KnowledgePlatform |
+| 9      | kp\-dp\-es\-1           |                            |                           | composite\-search\-cluster,es\-ps                                                                                     |                   |
+| 10     | Postgress               |                            |                           |                                                                                                                       |                   |
+| 11     | neo4j                   |                            |                           | learning\-neo4j\-node1                                                                                                |                   |
+| 12     | learning\-1             | Server\-4 \(lp\-services\) |                           | learning1,logstash\-ps                                                                                                |                   |
+| 13     | redis                   |                            |                           | redis1                                                                                                                |                   |
+| 14     | search                  |                            |                           | search1                                                                                                               |                   |
+| 15     | spark                   | Server 5 \(spark\)         |                           |  spark                                                                                                                | Data Pipeline     |
+| 16     |  yarn\-rm               | Server 6 \(yarn\-RM\)      |                           | yarn\-master,yarn\-ps                                                                                                 |                   |
+| 17     | yarn\-slave             | Server 7 \(yarn\-slave\)   |                           | yarn\-slave,yarn\-ps                                                                                                  |                   |
+| 18     | analytics\-api          | Server 8 \(dp\-services\)  |                           | analytics\-api, analytics\-ps,                                                                                        |                   |
+| 19     | kafka\-indexer          |                            |                           | kafka\-indexer                                                                                                        |                   |
+| 20     | secor                   |                            |                           | secor, secor\-ps                                                                                                      |                   |
+| 21     | InfluxDB                |                            |                           |                                                                                                                       |                   |
+| 22     | kafka \(Kp, Dp\. Core\) | Server 9 \(kafka\)         |                           | processing\-cluster\-kafka, processing\-cluster\-zookeepers, kafka\-ps kafka\-1                                       | Common            |
 
     
   
