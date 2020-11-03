@@ -1221,8 +1221,7 @@ PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan 
 
 -   cd /mydata/
 
--   create a folders bulk\_upload content-directory ilp-static logs
-    > mobile-apps
+-   create a folders bulk\_upload ,content-directory ,ilp-static logs , mobile-apps
 
 -   change in to logs directory
 
@@ -1263,11 +1262,11 @@ PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan 
 
 -   same thing will be applies for site.config.json file too
 
-<!-- -->
+
 
 -   Nginx configuration set up
 
-<!-- -->
+
 
 -   login to swarm machine
 
