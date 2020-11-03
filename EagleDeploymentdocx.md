@@ -78,24 +78,25 @@ Update /etc/hosts file with all host name
 
 -   Now switch back to the terminal session on the Jenkins server
 
-> cp envOrder.txt.sample envOrder.txt\
-> vi envOrder.txt
+> 
+   cp envOrder.txt.sample envOrder.txt\
+>  
+   vi envOrder.txt
 
--   Update the environment list as per your infrastructure in ascending
-    > order. For example if you have only dev and production,
-    > your envOrder.txt will look like
+-  Update the environment list as per your infrastructure in ascending order. For example if you have only dev and production, your envOrder.txt will look like
 
-> dev=0
 >
->  production=1
+   dev=0
 
--    Now run the jenkins-jobs-setup.sh script
+>  
+   production=1
 
-> sudo bash jenkins-jobs-setup.sh
+-  Now run the jenkins-jobs-setup.sh script
 
--   Follow the onscreen instruction of the script. Provide choice as
-    > “yes” for all questions. The options are case sensitive, the
-    > script will display the accepted options.
+>  
+   sudo bash jenkins-jobs-setup.sh
+
+-   Follow the onscreen instruction of the script. Provide choice as “yes” for all questions. The options are case sensitive, the script will display the accepted options.
 
 <!-- -->
 
@@ -103,17 +104,17 @@ Update /etc/hosts file with all host name
 
 <!-- -->
 
--   Go
-    > to http://&lt;jenkins\_domain&gt;/credentials/store/system/domain/\_/newCredentials\
-    > Select Username with Password
+-   Go to http://&lt;jenkins\_domain&gt;/credentials/store/system/domain/\_/newCredentials\ Select Username with Password
 
 <!-- -->
 
 -   Enter the username and password of the github account where the private repo will be hosted.
 
-> Enter a unique long string for the ID field such as private-repo-creds
+> 
+    Enter a unique long string for the ID field such as private-repo-creds
 >
-> you can provide the description as private repo credentials and click OK.
+
+   you can provide the description as private repo credentials and click OK.
 
 ![](/media/image1.png)
 
@@ -181,21 +182,24 @@ Update /etc/hosts file with all host name
 
 -   Execute below command to create SSH config file
 
-> sudo su jenkins
+> 
+   sudo su jenkins
 >
-> mkdir -p /var/lib/jenkins/secrets && cd /var/lib/jenkins/secrets
+   mkdir -p /var/lib/jenkins/secrets && cd /var/lib/jenkins/secrets
 >
-> touch deployer\_ssh\_key ops\_ssh\_key vault-pass
->
-> chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
+   touch deployer\_ssh\_key ops\_ssh\_key vault-pass
+>  
+   chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
 >
 > ![](/media/image7.png)
 
 -   The key which you used to login to the Jenkins server will be called as ops\_ssh\_key from now onwards. Example
 
-> ssh -i somekey.pem ubuntu@jenkins-server-ip
 >
-> Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
+   ssh -i somekey.pem ubuntu@jenkins-server-ip
+>
+
+   Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
 
 -   Copy the contents of the key you used to connect to VM into ops\_ssh\_key file
 
@@ -203,7 +207,8 @@ Update /etc/hosts file with all host name
 
 -   Create a new ssh key on your local machine or any server. We will use this for a user named deployer (or any name you like)
 
->  ssh-keygen -f deployer\_ssh\_key (passphrase should be empty)
+>  
+    ssh-keygen -f deployer\_ssh\_key (passphrase should be empty)
 
 -   Copy the contents of the deployer\_ssh\_key into /var/lib/jenkins/secrets/deployer\_ssh\_key
 
@@ -211,7 +216,8 @@ Update /etc/hosts file with all host name
 
 -   If your github private repo consists of ansible encrypted files, then enter the decryption password
 
-> in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted files, then enter some random value like 12345 into the vault-pass file. This file cannot be empty.
+> 
+    in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted files, then enter some random value like 12345 into the vault-pass file. This file cannot be empty.
 
 -   Restart Jenkins server
 
@@ -219,7 +225,8 @@ Update /etc/hosts file with all host name
 
 -   Follow the next set of steps to create inventory, secrets and ansible hosts in the private repo.
 
-> Updating private repo with hosts and variables
+>
+    Updating private repo with hosts and variables
 
 a.  git clone [https://github.com/project-sunbird/sunbird-devops](https://project-sunbird/sunbird-devops)
 
@@ -234,37 +241,37 @@ e.  Folder Structure for the private directory which contains ansible hosts secr
 > Folder Structure
 
   -----------------------------------------------------
-  > \~/Documents/projects/subird-devops/private\_repo
+   \~/Documents/projects/subird-devops/private\_repo
   >
-  > ansible
+   ansible
   >
-  > └── inventory
+   └── inventory
   >
-  >     └── dev
+       └── dev
   >
-  >         ├── Core
+           ├── Core
   >
-  >         │   ├── common.yml
+          │   ├── common.yml
   >
-  >         │   ├── hosts
+           │   ├── hosts
   >
-  >         │   └── secrets.yml
+           │   └── secrets.yml
   >
-  >         ├── DataPipeline
+           ├── DataPipeline
   >
-  >         │   ├── common.yml
+           │   ├── common.yml
   >
-  >         │   ├── hosts
+           │   ├── hosts
   >
-  >         │   └── secrets.yml
+           │   └── secrets.yml
   >
-  >         └── KnowledgePlatform
+           └── KnowledgePlatform
   >
-  >             ├── common.yml
+               ├── common.yml
   >
-  >             ├── hosts
+               ├── hosts
   >
-  >             └── secrets.yml
+               └── secrets.yml
   >
   >  
   >
@@ -283,7 +290,8 @@ e.  git branch --set-upstream-to=origin/master master && git push --set-upstream
 
 f.  update the variables and push it to upstream.
 
-> Updating variables and hosts
+>
+Updating variables and hosts
 
 a.  cd private\_repo/ansible/inventory/dev/&lt;module&gt;/
 
@@ -326,11 +334,14 @@ b.  update hosts common.yml secrets.yml
 
 -   Switch to the Build folder and run all jobs in the KnowledgePlatform folder.
 
-> Update the repo and branch of Neo4j job as below
 >
-> [*https://github.com/project-sunbird/sunbird-learning-platform.git*](https://github.com/project-sunbird/sunbird-learning-platform.git)
+    Update the repo and branch of Neo4j job as below
 >
-> refs/tags/release-2.2.1\_RC8
+> 
+    [*https://github.com/project-sunbird/sunbird-learning-platform.git*](https://github.com/project-sunbird/sunbird-learning-platform.git)
+>
+> 
+    refs/tags/release-2.2.1\_RC8
 
 -   Switch the artifactUpload /dev/ folder and Run all the job manually with option "jenkin job" in Knowledge Platform folder.
 
@@ -344,7 +355,8 @@ b.  update hosts common.yml secrets.yml
 
 2.2 Provision
 
-> Switch to Provision/dev/KnowledgePlatform and run jobs in following order
+> 
+    Switch to Provision/dev/KnowledgePlatform and run jobs in following order
 
 -   Cassandra
 
@@ -362,33 +374,46 @@ b.  update hosts common.yml secrets.yml
 
 -   Search
 
-> Update the repo and branch of Neo4j job as below
+> 
+   Update the repo and branch of Neo4j job as below
 >
-> <https://github.com/eagle-sb/sunbird-learning-platform.git>
 >
-> release-1.14.0
+   <https://github.com/eagle-sb/sunbird-learning-platform.git>
 >
-> Update the repo and branch of Zookeeper job as below
+> 
+   release-1.14.0
 >
-> https://github.com/eagle-sb/sunbird-learning-platform.git
+> 
+   Update the repo and branch of Zookeeper job as below
 >
-> release-1.14.0
+> 
+   https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> Update the repo and branch of Zookeeper job as below
+> 
+  release-1.14.0
 >
-> https://github.com/eagle-sb/sunbird-learning-platform.git
+> 
+  Update the repo and branch of Zookeeper job as below
 >
-> release-1.14.0
+> 
+  https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> Update the repo and branch of Zookeeper job as below
+> 
+  release-1.14.0
 >
-> https://github.com/eagle-sb/sunbird-learning-platform.git
+> 
+  Update the repo and branch of Zookeeper job as below
 >
-> release-1.14.0
+> 
+  https://github.com/eagle-sb/sunbird-learning-platform.git
+>
+> 
+  release-1.14.0
 
 2.3 Deploy
 
-> Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
+> 
+   Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
 
 -   CassandraDbUpdate
 
@@ -404,55 +429,68 @@ b.  update hosts common.yml secrets.yml
 
 -   KafkaSetup
 
-> Neo4jDefinitionUpdate Update the repo and branch
+> 
+   Neo4jDefinitionUpdate Update the repo and branch
 >
-> https://github.com/project-sunbird/sunbird-learning-platform.git
+> 
+  https://github.com/project-sunbird/sunbird-learning-platform.git
 >
-> refs/tags/release-2.2.1\_RC8
+> 
+  refs/tags/release-2.2.1\_RC8
 
 -   Manual Run - Content retire API
 
-> Login to the cassandra VM and run the below commands
+> 
+   Login to the cassandra VM and run the below commands
 >
-> vi /etc/cassandra/cassandra.yaml
+> 
+   vi /etc/cassandra/cassandra.yaml
 >
-> Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
+> 
+   Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
 >
-> service cassandra restart
+> 
+   service cassandra restart
 >
-> cd /tmp
+> 
+   cd /tmp
 >
-> wget
-> [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
+> 
+  wget [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
 >
-> Run cqlsh
+> 
+  Run cqlsh
 >
-> COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv';
-> (Here dev will be you env name)
+> 
+  COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv';
+> 
+  (Here dev will be you env name)
 >
-> SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should
-> be 324 rows)
+> 
+  SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should be 324 rows)
 >
-> Login to learning VM and restart tomcat
+> 
+  Login to learning VM and restart tomcat
 >
-> sudo service tomcat restart
+> 
+  sudo service tomcat restart
 >
-> Now you should be able to delete contents from workspace, drafts,
-> contents which are published etc.
+> 
+  Now you should be able to delete contents from workspace, drafts, contents which are published etc.
 
--   Switch to Deploy/dev/DataPipeline folder and
-    > provision/dev/DataPipeline  run all jobs. 
+-   Switch to Deploy/dev/DataPipeline folder and provision/dev/DataPipeline  run all jobs. 
 
-> Run yarn job job
+> 
+   Run yarn job job
 >
-> Note:Yarn provision and deploy needs to be done from DP
+> 
+   Note:Yarn provision and deploy needs to be done from DP
 
 3. Data Pipeline
 
 3.1 Build
 
-Switch to the Build folder of the data pipeline module and run all
-jobs. 
+Switch to the Build folder of the data pipeline module and run all jobs. 
 
 3.2 Provision
 
@@ -472,7 +510,8 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
 
 -   Yarn
 
-> Analytics Spark Update the repo and branch
+> 
+    Analytics Spark Update the repo and branch
 >
 > https://github.com/eagle-sb/sunbird-data-pipeline.git
 >
