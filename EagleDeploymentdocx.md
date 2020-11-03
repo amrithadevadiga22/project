@@ -394,7 +394,7 @@ b.  update hosts common.yml secrets.yml
 
 2.3 Deploy
 
-> Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
+   Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
 
 -   CassandraDbUpdate
 
@@ -410,48 +410,43 @@ b.  update hosts common.yml secrets.yml
 
 -   KafkaSetup
 
-> Neo4jDefinitionUpdate Update the repo and branch
->
-> https://github.com/project-sunbird/sunbird-learning-platform.git
->
-> refs/tags/release-2.2.1\_RC8
+    Neo4jDefinitionUpdate Update the repo and branch
+    >
+    https://github.com/project-sunbird/sunbird-learning-platform.git
+    >
+    refs/tags/release-2.2.1\_RC8
 
 -   Manual Run - Content retire API
 
-> Login to the cassandra VM and run the below commands
->
-> vi /etc/cassandra/cassandra.yaml
->
-> Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
->
-> service cassandra restart
->
-> cd /tmp
->
-> wget
-> [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
->
-> Run cqlsh
->
-> COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv';
-> (Here dev will be you env name)
->
-> SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should
-> be 324 rows)
->
-> Login to learning VM and restart tomcat
->
-> sudo service tomcat restart
->
-> Now you should be able to delete contents from workspace, drafts,
-> contents which are published etc.
+    Login to the cassandra VM and run the below commands
+    >
+    vi /etc/cassandra/cassandra.yaml
+   >
+   Update the value as batch\_size\_fail\_threshold\_in\_kb: 200
+   >
+   service cassandra restart
+   >
+   cd /tmp
+   >
+   wget [*https://sunbirdpublic.blob.core.windows.net/installation/script\_data.csv*](https://sunbirdpublic.blob.core.windows.net/installation/script_data.csv)
+   >
+   Run cqlsh
+   >
+  COPY dev\_script\_store.script\_data FROM '/tmp/script\_data.csv'; (Here dev will be you env name)
+  >
+  SELECT COUNT(\*) FROM dev\_script\_store.script\_data ; (Output should be 324 rows)
+  >
+  Login to learning VM and restart tomcat
+  >
+  sudo service tomcat restart
+  >
+  Now you should be able to delete contents from workspace, drafts, contents which are published etc.
 
--   Switch to Deploy/dev/DataPipeline folder and
-    > provision/dev/DataPipeline  run all jobs. 
+-   Switch to Deploy/dev/DataPipeline folder and provision/dev/DataPipeline  run all jobs. 
 
-> Run yarn job job
->
-> Note:Yarn provision and deploy needs to be done from DP
+   Run yarn job job
+   >
+   Note:Yarn provision and deploy needs to be done from DP
 
 3. Data Pipeline
 
@@ -478,19 +473,20 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
 
 -   Yarn
 
-> Analytics Spark Update the repo and branch
->
-> https://github.com/eagle-sb/sunbird-data-pipeline.git
->
-> release-1.14.0\_eagle
->
-> Execute below command before running job
+  Analytics Spark Update the repo and branch
+  >
+   https://github.com/eagle-sb/sunbird-data-pipeline.git
+  >
+  release-1.14.0\_eagle
+  >
+  Execute below command before running job
 
 -   gem update --system
 
 -   /usr/local/bin/gem install --no-user-install --no-document bundler
 
-> Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
+   >
+   Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
 
 
 3.3 Deploy
@@ -513,22 +509,22 @@ Switch to Deploy/dev/DataPipeline and run all jobs in following order
 
 -   Yarn
 
-> AnalyticsApi Update the repo and branch
->
-> https://github.com/eagle-sb/sunbird-data-pipeline.git
->
-> release-1.14.0\_eagle
->
-> KafkaIndexer Update the repo and branch
->
-> https://github.com/eagle-sb/sunbird-data-pipeline.git
->
-> release-1.14.0\_eagle
+
+  AnalyticsApi Update the repo and branch
+  >
+   https://github.com/eagle-sb/sunbird-data-pipeline.git
+   >
+  release-1.14.0\_eagle
+   >
+  KafkaIndexer Update the repo and branch
+   >
+  https://github.com/eagle-sb/sunbird-data-pipeline.git
+   >
+ release-1.14.0\_eagle
 
 4 Core
 
-> Switch to Jenkins/OpsAdministration/dev/core folder and run Bootstrap
-> job
+Switch to Jenkins/OpsAdministration/dev/core folder and run Bootstrap job
 
 4.1 Builds:
 
@@ -562,9 +558,9 @@ Provision:
 
 -   Cassandra Update the repo and branch
 
-> [*https://github.com/eagle-sb/sunbird-devops.git*](https://github.com/eagle-sb/sunbird-devops.git)
->
-> release-1.14.0\_eagle
+   [*https://github.com/eagle-sb/sunbird-devops.git*](https://github.com/eagle-sb/sunbird-devops.git)
+   >
+   release-1.14.0\_eagle
 
 4.2 Deploy
 
@@ -580,15 +576,15 @@ Provision:
 
 -   ApplicationElasticSearch Update the repo and branch
 
-> https://github.com/eagle-sb/sunbird-devops.git
->
-> release-1.14.0\_eagle
+ https://github.com/eagle-sb/sunbird-devops.git
+   >
+ release-1.14.0\_eagle
 
 -   Proxy Update the repo and branch
 
-> https://github.com/aastar-dev1/sunbird-devops.git
->
-> release-1.1
+  https://github.com/aastar-dev1/sunbird-devops.git
+  >
+  release-1.1
 
 -   install elastic search with latest version in core db server
 
@@ -596,8 +592,7 @@ Provision:
 
 -   Login to core DB server
 
--   Clone the repo git clone
-    > [*https://github.com/igot-gov/Eagle*](https://github.com/igot-gov/Eagle)
+-   Clone the repo git clone [*https://github.com/igot-gov/Eagle*](https://github.com/igot-gov/Eagle)
 
 -   cd db\_scripts
 
@@ -605,7 +600,8 @@ Provision:
 
 -   Go to the scripts directory for Cassandra
 
-> cd /home/ubuntu/Eagle/db\_scripts/Cassandra
+    >
+    cd /home/ubuntu/Eagle/db\_scripts/Cassandra
 
 -   Run first create-keyspace.cql as below
 
@@ -615,71 +611,73 @@ Provision:
 
 ++++++++++++++++++++++++++++++++++++
 
-> cqlsh -f create-keyspace.cql
->
-> cqlsh -f authoring.cql
->
-> cqlsh -f content\_source.cql
->
-> cqlsh -f goals.cql
->
-> cqlsh -f Notification.cql
->
-> cqlsh -f rating.cql
->
-> cqlsh -f timespent.cql
->
-> cqlsh -f badge.cql
->
-> cqlsh -f continuelearning.cql
->
-> cqlsh -f playlist.cql
->
-> cqlsh -f roles.cql
->
-> cqlsh -f tnc.cql
->
-> cqlsh -f cohorts.cql
->
-> cqlsh -f leaderboard.cql
->
-> cqlsh -f preferences.cql
->
-> cqlsh -f social.cql
->
-> cqlsh -f user\_access\_paths.cql
->
-> cqlsh -f common.cql
->
-> cqlsh -f events.cql
->
-> cqlsh -f likes.cql
->
-> cqlsh -f progress.cql
->
-> cqlsh -f submissions.cql
->
-> cqlsh -f user\_access\_paths.cql
->
-> cqlsh -f Notification.cql
->
-> cqlsh -f scrom.cql (; missing in query edit and run the file)
->
-> cqlsh -f interest.cql
->
-> +++++++++++++++++++++++++++++++++
->
-> Couldn’t able run these below file
->
-> master\_values.cql
->
-> api\_authentication.cql
->
-> user\_admin\_level.cql
->
-> app\_config\_insert.cql
->
-> user\_shared\_content.cql
+  cqlsh -f create-keyspace.cql
+  >
+  cqlsh -f authoring.cql
+  >
+  cqlsh -f content\_source.cql
+  >
+  cqlsh -f goals.cql
+  >
+  cqlsh -f Notification.cql
+  >
+  cqlsh -f rating.cql
+  >
+  cqlsh -f timespent.cql
+  >
+  cqlsh -f badge.cql
+  >
+  cqlsh -f continuelearning.cql
+  >
+  cqlsh -f playlist.cql
+  >
+  cqlsh -f roles.cql
+  >
+  cqlsh -f tnc.cql
+  >
+  cqlsh -f cohorts.cql
+  >
+  cqlsh -f leaderboard.cql
+  >
+  cqlsh -f preferences.cql
+  >
+  cqlsh -f social.cql
+  > 
+ cqlsh -f user\_access\_paths.cql
+  >
+ cqlsh -f common.cql
+  >
+ cqlsh -f events.cql
+  >
+  cqlsh -f likes.cql
+  >
+ cqlsh -f progress.cql
+  >
+ cqlsh -f submissions.cql
+  >
+ cqlsh -f user\_access\_paths.cql
+ >
+ cqlsh -f Notification.cql
+ >
+ cqlsh -f scrom.cql (; missing in query edit and run the file)
+  >
+ cqlsh -f interest.cql
+ >
+ > +++++++++++++++++++++++++++++++++
+ >
+ >
+ Couldn’t able run these below file
+ >
+master\_values.cql
+ >
+
+ api\_authentication.cql
+ >
+ user\_admin\_level.cql
+ >
+ app\_config\_insert.cql
+ >
+ user\_shared\_content.cql
 
 5.2 Set up of PostgreSQL DB
 
@@ -687,25 +685,75 @@ Provision:
 
 -   Switched to postgres user
 
-> sudo su postgres
->
-> psql
->
-> Create database wingspan;
->
-> create user wingspan with password '&lt;initial password&gt;';
->
-> alter database wingspan owner to wingspan;
->
-> \\l for list databases
->
-> \\q quit from psql
+
+  sudo su postgres
+  >
+  psql
+  >
+  Create database wingspan;
+  >
+  create user wingspan with password '&lt;initial password&gt;';
+  >
+  alter database wingspan owner to wingspan;
+  >
+ \\l for list databases
+  >
+ \\q quit from psql
 
 -   Go to the script location
     > /home/ubuntu/test/wingspan-database-scripts-db\_scripts/postgres
     > and run all the .sql scripts from postgres user
+    
+    PGPASSWORD= <initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f create-schema.sql
 
-> first need to run create-schema.sql
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f user_details.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f badge.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f goals.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f userprofiles_pathfinders.sql
+
+
+PGPASSWORD= <initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f batch_execution.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f termsandconditions.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f content_progress.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f educator_mapping.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f content_source.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f filters.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f notification.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f pathfinders_notfication.sql
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f notification_infosys.sql
+
+
+cd Notification\ Final\ Scripts
+
+
+PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f Notification\ Final\ Scripts
+    
+    
+
+    first need to run create-schema.sql
 >
 > PGPASSWORD= &lt;initial password&gt; psql -h localhost -U wingspan -p
 > 5432 -d wingspan -a -f create-schema.sql
