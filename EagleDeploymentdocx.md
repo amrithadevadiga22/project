@@ -234,9 +234,8 @@ e.  Folder Structure for the private directory which contains ansible hosts secr
 
    Folder Structure
 
-  -----------------------------------------------------
    \~/Documents/projects/subird-devops/private\_repo
-  >
+  
    ansible
   >
    └── inventory
@@ -267,10 +266,7 @@ e.  Folder Structure for the private directory which contains ansible hosts secr
   >
                └── secrets.yml
   >
-  >  
-  >
-  > 5 directories, 9 files
-  -----------------------------------------------------
+  5 directories, 9 files
 
 a.  git init
 
