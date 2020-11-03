@@ -350,7 +350,7 @@ b.  update hosts common.yml secrets.yml
 
 2.2 Provision
 
-> Switch to Provision/dev/KnowledgePlatform and run jobs in following order
+   Switch to Provision/dev/KnowledgePlatform and run jobs in following order
 
 -   Cassandra
 
@@ -368,29 +368,29 @@ b.  update hosts common.yml secrets.yml
 
 -   Search
 
-> Update the repo and branch of Neo4j job as below
+    Update the repo and branch of Neo4j job as below
 >
-> <https://github.com/eagle-sb/sunbird-learning-platform.git>
+    <https://github.com/eagle-sb/sunbird-learning-platform.git>
 >
-> release-1.14.0
+    release-1.14.0
 >
-> Update the repo and branch of Zookeeper job as below
+    Update the repo and branch of Zookeeper job as below
 >
-> https://github.com/eagle-sb/sunbird-learning-platform.git
+    https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> release-1.14.0
+     release-1.14.0
 >
-> Update the repo and branch of Zookeeper job as below
+     Update the repo and branch of Zookeeper job as below
 >
-> https://github.com/eagle-sb/sunbird-learning-platform.git
+      https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> release-1.14.0
+      release-1.14.0
 >
-> Update the repo and branch of Zookeeper job as below
+      Update the repo and branch of Zookeeper job as below
 >
-> https://github.com/eagle-sb/sunbird-learning-platform.git
+      https://github.com/eagle-sb/sunbird-learning-platform.git
 >
-> release-1.14.0
+      release-1.14.0
 
 2.3 Deploy
 
