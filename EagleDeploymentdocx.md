@@ -747,35 +747,35 @@ PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan 
 
 -   Go to search\_autocomplete folder
 
-open acindexer.py and update as below
+     open acindexer.py and update as below
 
 
-esUrl = '10.0.3.x' #os.environ['esurl']
+     esUrl = '10.0.3.x' #os.environ['esurl']
 
-esPort = '9200' #os.environ['esport']
+     esPort = '9200' #os.environ['esport']
 
-esPass = '' #os.environ['espass']
+     esPass = '' #os.environ['espass']
 
-esUser = 'elastic' #os.environ['esuser']
+     esUser = 'elastic' #os.environ['esuser']
 
-rootOrg = 'igot' #os.environ['rootOrg']
+     rootOrg = 'igot' #os.environ['rootOrg']
 
-org = 'dopt' #os.environ['org']
+     org = 'dopt' #os.environ['org']
 
 
 -   then open acindexcreator.py and update as below
 
-esUrl = '10.0.3.x’ #os.environ['esurl']
+     esUrl = '10.0.3.x’ #os.environ['esurl']
 
-esPort = '9200'  #os.environ['esport']
+     esPort = '9200'  #os.environ['esport']
 
-esPass = '' #os.environ['espass']
+     esPass = '' #os.environ['espass']
 
-esUser = 'elastic' #os.environ['esuser']
+     esUser = 'elastic' #os.environ['esuser']
 
-aliases = 'no' #os.environ['aliases']
+     aliases = 'no' #os.environ['aliases']
 
-indices = 'yes' #os.environ['indices']
+     indices = 'yes' #os.environ['indices']
 
 -   Go to DBScripts/elasticsearch/index/search/search\_mappings\_settings.py
 
@@ -818,52 +818,52 @@ indices = 'yes' #os.environ['indices']
       
 -   run create\_templates.sh script
 
-    bash create_templates.sh
+     bash create_templates.sh
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.json http://<elastic server ip>:9200/_scripts/counttemplate
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.json http://<elastic server ip>:9200/_scripts/counttemplate
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @forumtemplate.json http://<elastic server ip>:9200/_scripts/forumtemplate
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @forumtemplate.json http://<elastic server ip>:9200/_scripts/forumtemplate
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @hashtagstemplate.json http://<elastic server ip>:9200/_scripts/hashtagstemplate
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @hashtagstemplate.json http://<elastic server ip>:9200/_scripts/hashtagstemplate
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplate.json http://<elastic server ip>:9200/_scripts/mlsearchtemplate
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplate.json http://<elastic server ip>:9200/_scripts/mlsearchtemplate
 
    
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplatev6.json http://<elastic server ip>:9200/_scripts/mlsearchtemplatev6
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @mlsearchtemplatev6.json http://<elastic server ip>:9200/_scripts/mlsearchtemplatev6
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @posttemplate.json http://<elastic server ip>:9200/_scripts/posttemplate
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @posttemplate.json http://<elastic server ip>:9200/_scripts/posttemplate
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @searchactemplate.json http://<elastic server ip>:9200/_scripts/searchactemplate
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @searchactemplate.json http://<elastic server ip>:9200/_scripts/searchactemplate
 
 
-    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @socialsearchtemplate_v1.json http://<elastic server ip>:9200/_scripts/socialsearchtemplate_v1
+     curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @socialsearchtemplate_v1.json http://<elastic server ip>:9200/_scripts/socialsearchtemplate_v1
+
+ 
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @tagstemplate.json http://10.0.3.x<elastic server ip>:9200/_scripts/tagstemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @tagstemplate.json http://10.0.3.x<elastic server ip>:9200/_scripts/tagstemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate.json http://<elastic server ip>:9200/_scripts/threadtemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate.json http://<elastic server ip>:9200/_scripts/threadtemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate_v1.json http://<elastic server ip>:9200/_scripts/threadtemplate_v1
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate_v1.json http://<elastic server ip>:9200/_scripts/threadtemplate_v1
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate_v2.json http://<elastic server ip>:9200/_scripts/threadtemplate_v2
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @threadtemplate_v2.json http://<elastic server ip>:9200/_scripts/threadtemplate_v2
-
-
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @topicsactemplate.json http://<elastic server ip>:9200/_scripts/topicsactemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @topicsactemplate.json http://<elastic server ip>:9200/_scripts/topicsactemplate
 
   
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @userpostactivitytemplate.json http://<elastic server ip>:9200/_scripts/userpostactivitytemplate
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @userpostactivitytemplate.json http://<elastic server ip>:9200/_scripts/userpostactivitytemplate
 
 
-   curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @usersearchtemplate_ford.json http://<elastic server ip>:9200/_scripts/usersearchtemplate_for
+    curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @usersearchtemplate_ford.json http://<elastic server ip>:9200/_scripts/usersearchtemplate_for
 
 
 -   This will generate script for template creation, like below Run all the script from template folder
