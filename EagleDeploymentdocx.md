@@ -103,9 +103,7 @@ Update /etc/hosts file with all host name
 
 <!-- -->
 
--   Once the script completes copying the job config, go to the browser
-    > and restart jenkins using public-ip:8080/restart OR
-    > domain-name:8080/restart
+-   Once the script completes copying the job config, go to the browser and restart jenkins using public-ip:8080/restart OR domain-name:8080/restart
 
 <!-- -->
 
@@ -115,13 +113,11 @@ Update /etc/hosts file with all host name
 
 <!-- -->
 
--   Enter the username and password of the github account where the
-    > private repo will be hosted.
+-   Enter the username and password of the github account where the private repo will be hosted.
 
 > Enter a unique long string for the ID field such as private-repo-creds
 >
-> you can provide the description as private repo credentials and click
-> OK.
+> you can provide the description as private repo credentials and click OK.
 
 ![](/media/image1.png)
 
@@ -149,8 +145,7 @@ Update /etc/hosts file with all host name
 
 ![](/media/image3.png)
 
--   Scroll down to “Global Pipeline Libraries” section and click Add.
-    > Provide the values as below
+-   Scroll down to “Global Pipeline Libraries” section and click Add. Provide the values as below
 
 | Name         |                  Value|
   --------------|:------------------------:|
@@ -164,7 +159,7 @@ Update /etc/hosts file with all host name
 
 ![](media/image2.png)
 
--   Click on Save and go to Manage Jenkins -&gt; Configure global > security
+-   Click on Save and go to Manage Jenkins -&gt; Configure global security
 
 <!-- -->
 
@@ -172,14 +167,11 @@ Update /etc/hosts file with all host name
 
 ![](/media/image5.png)
 
--   Go to Manage Jenkins -&gt; Manage Nodes -&gt; Click master -&gt;
-    > Click Configure -&gt; Provide labels as “build-slave”
+-   Go to Manage Jenkins -&gt; Manage Nodes -&gt; Click master -&gt; Click Configure -&gt; Provide labels as “build-slave”
 
 <!-- -->
 
--   Set the number of executors to a number like 15 if your system
-    > configuration is 16 GB RAM and 4 core CPU. Adjust this number
-    > accordingly based on your system configuration
+-   Set the number of executors to a number like 15 if your system configuration is 16 GB RAM and 4 core CPU. Adjust this number accordingly based on your system configuration
 
 ![](/media/image4.png)
 
@@ -203,56 +195,45 @@ Update /etc/hosts file with all host name
 >
 > ![](/media/image7.png)
 
--   The key which you used to login to the Jenkins server will be called
-    > as ops\_ssh\_key from now onwards. Example
+-   The key which you used to login to the Jenkins server will be called as ops\_ssh\_key from now onwards. Example
 
 > ssh -i somekey.pem ubuntu@jenkins-server-ip
 >
-> Here somekey.pem is the key you used to login to the Jenkins server
-> which will be called as ops\_ssh\_key
+> Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
 
--   Copy the contents of the key you used to connect to VM
-    > into ops\_ssh\_key file
+-   Copy the contents of the key you used to connect to VM into ops\_ssh\_key file
 
 <!-- -->
 
--   Create a new ssh key on your local machine or any server. We will
-    > use this for a user named deployer (or any name you like)
+-   Create a new ssh key on your local machine or any server. We will use this for a user named deployer (or any name you like)
 
 >  ssh-keygen -f deployer\_ssh\_key (passphrase should be empty)
 
--   Copy the contents of the deployer\_ssh\_key into
-    > /var/lib/jenkins/secrets/deployer\_ssh\_key
+-   Copy the contents of the deployer\_ssh\_key into /var/lib/jenkins/secrets/deployer\_ssh\_key
 
 <!-- -->
 
--   If your github private repo consists of ansible encrypted files,
-    > then enter the decryption password
+-   If your github private repo consists of ansible encrypted files, then enter the decryption password
 
-> in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted
-> files, then enter some random value like 12345 into
-> the vault-pass file. This file cannot be empty.
+> in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted files, then enter some random value like 12345 into the vault-pass file. This file cannot be empty.
 
 -   Restart Jenkins server
 
 <!-- -->
 
--   Follow the next set of steps to create inventory, secrets and
-    > ansible hosts in the private repo.
+-   Follow the next set of steps to create inventory, secrets and ansible hosts in the private repo.
 
 > Updating private repo with hosts and variables
 
 a.  git clone [https://github.com/project-sunbird/sunbird-devops](https://project-sunbird/sunbird-devops)
 
-b.  cd sunbird-devops && git checkout tags/release-1.14.0 -b
-    > release-1.14.0
+b.  cd sunbird-devops && git checkout tags/release-1.14.0 -b release-1.14.0
 
 c.  cp -rf sunbird-devops/private\_repo .
 
 d.  cd private\_repo
 
-e.  Folder Structure for the private directory which contains ansible
-    > hosts secrets and variables.
+e.  Folder Structure for the private directory which contains ansible hosts secrets and variables.
 
 > Folder Structure
 
@@ -302,8 +283,7 @@ c.  git commit -m"Creating private files"
 
 d.  git remote add origin &lt;private repo url&gt;
 
-e.  git branch --set-upstream-to=origin/master master && git push
-    > --set-upstream origin master
+e.  git branch --set-upstream-to=origin/master master && git push --set-upstream origin master
 
 f.  update the variables and push it to upstream.
 
@@ -348,8 +328,7 @@ b.  update hosts common.yml secrets.yml
 
 <!-- -->
 
--   Switch to the Build folder and run all jobs in the KnowledgePlatform
-    > folder.
+-   Switch to the Build folder and run all jobs in the KnowledgePlatform folder.
 
 > Update the repo and branch of Neo4j job as below
 >
@@ -357,24 +336,19 @@ b.  update hosts common.yml secrets.yml
 >
 > refs/tags/release-2.2.1\_RC8
 
--   Switch the artifactUpload /dev/ folder and Run all the job manually
-    > with option "jenkin job" in Knowledge Platform folder.
+-   Switch the artifactUpload /dev/ folder and Run all the job manually with option "jenkin job" in Knowledge Platform folder.
 
 ![](/media/image6.png)
 
--   After running build job run Switch to
-    > Jenkins/OpsAdministration/dev/KnowledgePlatform folder and run
-    > Bootstrap job
+-   After running build job run Switch to Jenkins/OpsAdministration/dev/KnowledgePlatform folder and run Bootstrap job
 
 <!-- -->
 
--   Switch to Jenkins/OpsAdministration/dev/DataPipeline folder and run
-    > Bootstrap job
+-   Switch to Jenkins/OpsAdministration/dev/DataPipeline folder and run Bootstrap job
 
 2.2 Provision
 
-> Switch to Provision/dev/KnowledgePlatform and run jobs in following
-> order
+> Switch to Provision/dev/KnowledgePlatform and run jobs in following order
 
 -   Cassandra
 
@@ -418,8 +392,7 @@ b.  update hosts common.yml secrets.yml
 
 2.3 Deploy
 
-> Switch to Deploy/dev/KnowledgePlatform and run all jobs in the
-> following order
+> Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
 
 -   CassandraDbUpdate
 
@@ -478,7 +451,7 @@ b.  update hosts common.yml secrets.yml
 >
 > Note:Yarn provision and deploy needs to be done from DP
 
-3\. Data Pipeline
+3. Data Pipeline
 
 3.1 Build
 
@@ -1025,14 +998,11 @@ Provision:
 
 > curl http://&lt;elastic server ip&gt;:9200/\_cat/aliases | grep access
 
--   Next go into index folder and run all the scripts, it will create
-    > indices
+-   Next go into index folder and run all the scripts, it will create indices
 
 -   Then go to index/search folder and run below scripts
 
--   before run the script update the file
-    > create\_search\_indices\_aliases.py and create\_indices.sh like
-    > below
+-   before run the script update the file create\_search\_indices\_aliases.py and create\_indices.sh like below
 
 > export esurl=10.0.3.x
 >
