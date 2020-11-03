@@ -1,4 +1,4 @@
-#1.0 Host set up
+# 1.0 Host set up
 
 Update /etc/hosts file with all host name
 
@@ -28,48 +28,46 @@ Update /etc/hosts file with all host name
 >
  In “FS-Core-db” server, except Core Db Host name add all names in host file
 
-1.1 Jenkins Setup – First Run
+# 1.1 Jenkins Setup – First Run
 
 -   SSH to the Jenkins server
->
 
     git clone <https://github.com/project-sunbird/sunbird-devops.git>
->
+
     cd sunbird-devops && git checkout tags/release-1.14.0 -b release-1.14.0
->
+
     cd deploy/Jenkins
->
+
     Note: Edit jenkins-server-setup.sh to update the version of jenkin to 2.204
->
+
     sudo bash jenkins-server-setup.sh
 
 -   Once the jenkins-server-setup.sh script completes, open jenkins in browser by typing domain-name:8080 / public-ip:8080
 
-> 
+
     Enter the initial password. Follow the on screen instructions
 
 -   Choose install suggested plugin
 
     Create a admin user
->
+
     User name: admin
->
+
     Password: &lt;initial password&gt;
->
+
     Email : &lt;communication email&gt;
 
 -   Choose the default jenkins URL. You can either change this to your domain name or public IP. If in doubt, just use whatever is displayed on screen as this can be changed later if required in Jenkins configuration.
 
-> 
+
     [*http://IP:8080/*](http://ip:8080/)
 
 -   switch back to the terminal session on the Jenkins server
 
-> 
    sudo bash jenkins-plugins-setup.sh\
-> 
+ 
    Enter the URL as localhost:8080\
-> 
+ 
    Enter the admin username and password
 
 -  Now go to Manage Jenkins -&gt; Manage Plugins -&gt; Update Center -&gt; Check status of plugin install. If any plugins failed to install, install them manually by visiting the plugins section of Jenkins
@@ -78,21 +76,19 @@ Update /etc/hosts file with all host name
 
 -   Now switch back to the terminal session on the Jenkins server
 
-> 
+ 
    cp envOrder.txt.sample envOrder.txt\
->  
+ 
    vi envOrder.txt
 
 -  Update the environment list as per your infrastructure in ascending order. For example if you have only dev and production, your envOrder.txt will look like
 
->
    dev=0
->  
+   
    production=1
 
 -  Now run the jenkins-jobs-setup.sh script
-
->  
+  
    sudo bash jenkins-jobs-setup.sh
 
 -   Follow the onscreen instruction of the script. Provide choice as “yes” for all questions. The options are case sensitive, the script will display the accepted options.
@@ -109,9 +105,9 @@ Update /etc/hosts file with all host name
 
 -   Enter the username and password of the github account where the private repo will be hosted.
 
-> 
+ 
     Enter a unique long string for the ID field such as private-repo-creds
->
+
 
    you can provide the description as private repo credentials and click OK.
 
@@ -181,22 +177,22 @@ Update /etc/hosts file with all host name
 
 -   Execute below command to create SSH config file
 
-> 
+ 
    sudo su jenkins
->
+
    mkdir -p /var/lib/jenkins/secrets && cd /var/lib/jenkins/secrets
->
+
    touch deployer\_ssh\_key ops\_ssh\_key vault-pass
->  
+ 
    chmod 400 deployer\_ssh\_key ops\_ssh\_key vault-pass
->
+
 > ![](/media/image7.png)
 
 -   The key which you used to login to the Jenkins server will be called as ops\_ssh\_key from now onwards. Example
 
->
+
    ssh -i somekey.pem ubuntu@jenkins-server-ip
->
+
 
    Here somekey.pem is the key you used to login to the Jenkins server which will be called as ops\_ssh\_key
 
@@ -206,7 +202,7 @@ Update /etc/hosts file with all host name
 
 -   Create a new ssh key on your local machine or any server. We will use this for a user named deployer (or any name you like)
 
->  
+  
     ssh-keygen -f deployer\_ssh\_key (passphrase should be empty)
 
 -   Copy the contents of the deployer\_ssh\_key into /var/lib/jenkins/secrets/deployer\_ssh\_key
@@ -215,7 +211,7 @@ Update /etc/hosts file with all host name
 
 -   If your github private repo consists of ansible encrypted files, then enter the decryption password
 
-> 
+ 
     in /var/lib/jenkins/secrets/vault-pass. If there are no encrypted files, then enter some random value like 12345 into the vault-pass file. This file cannot be empty.
 
 -   Restart Jenkins server
@@ -224,7 +220,7 @@ Update /etc/hosts file with all host name
 
 -   Follow the next set of steps to create inventory, secrets and ansible hosts in the private repo.
 
->
+
     Updating private repo with hosts and variables
 
 a.  git clone [https://github.com/project-sunbird/sunbird-devops](https://project-sunbird/sunbird-devops)
@@ -322,9 +318,9 @@ b.  update hosts common.yml secrets.yml
 | 22     | kafka \(Kp, Dp\. Core\) | Server 9 \(kafka\)         |                           | processing\-cluster\-kafka, processing\-cluster\-zookeepers, kafka\-ps kafka\-1                                       | Common            |
 
  
-2. Knowledge Platform
+# 2. Knowledge Platform
 
-2.1 Build
+# 2.1 Build
 
 -   Login to Jenkins UI
 
@@ -348,7 +344,7 @@ b.  update hosts common.yml secrets.yml
 
 -   Switch to Jenkins/OpsAdministration/dev/DataPipeline folder and run Bootstrap job
 
-2.2 Provision
+# 2.2 Provision
 
    Switch to Provision/dev/KnowledgePlatform and run jobs in following order
 
@@ -392,7 +388,7 @@ b.  update hosts common.yml secrets.yml
       >
       release-1.14.0
 
-2.3 Deploy
+# 2.3 Deploy
 
    Switch to Deploy/dev/KnowledgePlatform and run all jobs in the following order
 
@@ -448,14 +444,14 @@ b.  update hosts common.yml secrets.yml
    >
    Note:Yarn provision and deploy needs to be done from DP
 
-3. Data Pipeline
+# 3. Data Pipeline
 
-3.1 Build
+# 3.1 Build
 
 Switch to the Build folder of the data pipeline module and run all
 jobs. 
 
-3.2 Provision
+# 3.2 Provision
 
 Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
 
@@ -489,7 +485,7 @@ Switch to Provision/&lt;env&gt;/DataPipeline and run all jobs
    Run all jobs in Jenkins/ArtifactUpload/dev/DataPipeline
 
 
-3.3 Deploy
+# 3.3 Deploy
 
 Switch to Deploy/dev/DataPipeline and run all jobs in following order
 
@@ -522,11 +518,11 @@ Switch to Deploy/dev/DataPipeline and run all jobs in following order
    >
  release-1.14.0\_eagle
 
-4 Core
+# 4 Core
 
 Switch to Jenkins/OpsAdministration/dev/core folder and run Bootstrap job
 
-4.1 Builds:
+# 4.1 Builds:
 
 -   Switch to the Build folder and run all jobs in the core folder.
 
@@ -562,7 +558,7 @@ Provision:
    >
    release-1.14.0\_eagle
 
-4.2 Deploy
+# 4.2 Deploy
 
 -   Switch to the deploy folder and run all jobs in the core folder.
 
@@ -588,7 +584,7 @@ Provision:
 
 -   install elastic search with latest version in core db server
 
-5 Eagle setup
+# 5 Eagle setup
 
 -   Login to core DB server
 
@@ -596,7 +592,7 @@ Provision:
 
 -   cd db\_scripts
 
-5.1 Set up of Cassandra DB
+# 5.1 Set up of Cassandra DB
 
 -   Go to the scripts directory for Cassandra
 
@@ -679,7 +675,7 @@ master\_values.cql
  >
  user\_shared\_content.cql
 
-5.2 Set up of PostgreSQL DB
+# 5.2 Set up of PostgreSQL DB
 
 -   Created postgres database using below commands
 
@@ -754,7 +750,7 @@ cd Notification\ Final\ Scripts
 PGPASSWORD=<initial password> psql -h localhost -U wingspan -p 5432 -d wingspan -a -f Notification\ Final\ Scripts
     
     
-5.3 Set up of Elastic DB
+# 5.3 Set up of Elastic DB
 
 -   Go to search\_autocomplete folder
 
@@ -1015,7 +1011,7 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
 
      python3 acindexer.py
 
-5.4 Kafka server setup
+# 5.4 Kafka server setup
 
 -   Login to kafka server
 
@@ -1122,7 +1118,7 @@ curl -u 'elastic:' -H 'Content-Type: application/json' -XPOST -d @counttemplate.
       cd /opt/kafka &&  bin/kafka-console-producer.sh --broker-list localhost:9092 --topic learning-graph-events bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic learning-graph-events --from-beginning
 
 
-6 Ansible configuration for service deployment
+# 6 Ansible configuration for service deployment
 
 -   Clone [*https://github.com/igot-gov/Eagle.git*](https://github.com/igot-gov/Eagle.git) git repo in jenkins server of master branch
 
