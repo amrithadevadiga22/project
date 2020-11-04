@@ -1462,3 +1462,15 @@ location /nodebb/ {
 -   Follow the document below for cloudfront set up
 
 [*https://drive.google.com/file/d/1aozN7nvsOS3HxeUifqTz23cQIbTDrD7H/view?ths=true*](https://drive.google.com/file/d/1aozN7nvsOS3HxeUifqTz23cQIbTDrD7H/view?ths=true)
+
+-   Set up private docker registry
+       
+      - Login to jenkin server 
+ 
+      - Execute the below command to create private docker repo 
+ 
+      - docker run -d -p 5000:5000 --restart=always --name registry-test -v /data/registry:/var/lib/registry registry:2
+ 
+      - Next <jenkinserver_ip> :5000 will be the docker server
+
+
