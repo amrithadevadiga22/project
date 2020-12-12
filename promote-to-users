@@ -1,0 +1,47 @@
+#!groovy
+
+node('anuvaad-block-merger') {
+
+try {
+   stage('Checkout'){
+      checkout scm
+	    }
+
+
+stage('Docker-compose')
+        withCredentials([string(credentialsId: 'anuvaad-encryption-password', variable: 'encryption_pass')]){
+            
+            sh '''
+            echo "hello world"
+            echo $image_name
+            
+        export IFS=","
+        sentence="$image_name"
+        for word in $sentence; do
+        echo "$word"
+        echo "deploy $word"
+        
+        echo $encryption_pass > encryption_pass.txt
+		environment=$(echo "$JOB_BASE_NAME" | rev | cut -d'-' -f 1 | rev)
+                echo "$environment"
+		cp -rpf ./env-vars/$environment.env ./$environment.env;
+		#ccrypt -d translate.json.cpt -K "$(cat encryption_pass.txt)"
+		compose_file=$(echo "$word" | cut -d':' -f 1)
+		tag=$(echo "$word" | cut -d':' -f 2)
+	    echo "$tag" 
+	    echo "$compose_file"
+		rm -rf encryption_pass.txt translate.json
+
+    
+        done
+
+         '''
+ }
+
+}
+
+catch (err) {
+    currentBuild.result = "FAILURE"
+    throw err
+ }
+}
